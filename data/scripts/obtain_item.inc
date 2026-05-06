@@ -2,6 +2,7 @@
 .set AMOUNT, VAR_0x8001
 
 Std_ObtainItem::
+	callnative RandomizeItemScriptHook
 	copyvar VAR_0x8006, ITEMID
 	additem ITEMID, AMOUNT
 	copyvar VAR_0x8007, VAR_RESULT
@@ -107,6 +108,7 @@ Std_FindItem::
 	lock
 	faceplayer
 	waitse
+	callnative RandomizeItemScriptHook
 	copyvar VAR_0x8006, ITEMID
 	copyvar VAR_0x8004, ITEMID
 	copyvar VAR_0x8005, AMOUNT
@@ -176,6 +178,9 @@ EventScript_HiddenItemScript::
 	lockall
 	waitse
 	goto_if_eq VAR_0x8005, 0, EventScript_TryPickUpHiddenCoins
+	copyvar VAR_0x8000, VAR_0x8005
+	callnative RandomizeItemScriptHook
+	copyvar VAR_0x8005, VAR_0x8000
 	copyvar VAR_0x8006, VAR_0x8005
 	additem VAR_0x8005, VAR_0x8009
 	copyvar VAR_0x8007, VAR_RESULT

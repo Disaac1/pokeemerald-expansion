@@ -55,6 +55,7 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 #include "fishing.h"
+#include "nuzlocke.h"
 
 enum TransitionType
 {
@@ -370,6 +371,7 @@ static void DoStandardWildBattle(bool32 isDouble)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 void DoStandardWildBattle_Debug(void)
@@ -403,6 +405,7 @@ void BattleSetup_StartRoamerBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 static void DoSafariBattle(void)
@@ -426,6 +429,7 @@ static void DoGhostBattle(void)
     SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, gText_Ghost);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 static void DoBattlePikeWildBattle(void)
@@ -440,6 +444,7 @@ static void DoBattlePikeWildBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 static void DoTrainerBattle(void)
@@ -491,6 +496,7 @@ void BattleSetup_StartScriptedWildBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 void BattleSetup_StartScriptedDoubleWildBattle(void)
@@ -503,6 +509,7 @@ void BattleSetup_StartScriptedDoubleWildBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 void StartMarowakBattle(void)
@@ -522,6 +529,7 @@ void StartMarowakBattle(void)
     SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, gText_Ghost);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 void BattleSetup_StartLatiBattle(void)
@@ -534,6 +542,7 @@ void BattleSetup_StartLatiBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 void BattleSetup_StartLegendaryBattle(void)
@@ -576,6 +585,7 @@ void BattleSetup_StartLegendaryBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 void StartGroudonKyogreBattle(void)
@@ -593,6 +603,7 @@ void StartGroudonKyogreBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 void StartRegiBattle(void)
@@ -626,12 +637,14 @@ void StartRegiBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+    Nuzlocke_InitWildBattle(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 }
 
 static void DowngradeBadPoison(void)
 {
     u8 i;
     u32 status = STATUS1_POISON;
+
     if (B_TOXIC_REVERSAL < GEN_5)
         return;
     for (i = 0; i < PARTY_SIZE; i++)
@@ -961,8 +974,28 @@ static void CB2_GiveStarter(void)
     u16 starterMon;
 
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
-    starterMon = GetStarterPokemon(gSpecialVar_Result);
+    starterMon = GetStarterPokemonBase(gSpecialVar_Result);
     ScriptGiveMon(starterMon, 5, ITEM_NONE);
+
+    // Force starter met location to Pallet Town
+    {
+        u16 metLocation = MAPSEC_PALLET_TOWN;
+        SetMonData(&gPlayerParty[0], MON_DATA_MET_LOCATION, &metLocation);
+    }
+
+    // Safety: Clear Route 101 flag in case the tutorial battle set it
+    Nuzlocke_ClearEncounterFlag(MAPSEC_ROUTE_101);
+
+#if NUZLOCKE_STARTING_ITEMS
+    if (!CheckBagHasItem(ITEM_PORTA_HEAL, 1))
+    {
+        AddBagItem(ITEM_PORTA_HEAL, 1);
+        AddBagItem(ITEM_INFINITE_REPEL, 1);
+        AddBagItem(ITEM_INFINITE_RARE_CANDY, 1);
+        AddBagItem(ITEM_CAP_CANDY, 1);
+    }
+#endif
+
     ResetTasks();
     PlayBattleBGM();
     SetMainCallback2(CB2_StartFirstBattle);

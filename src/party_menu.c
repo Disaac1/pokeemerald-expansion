@@ -68,7 +68,10 @@
 #include "text_window.h"
 #include "trade.h"
 #include "union_room.h"
+#include "vs_seeker.h"
+#include "nuzlocke.h"
 #include "window.h"
+#include "constants/abilities.h"
 #include "constants/battle.h"
 #include "constants/battle_frontier.h"
 #include "constants/field_effects.h"
@@ -4830,7 +4833,8 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         if (!IsItemFlute(item))
         {
             PlaySE(SE_USE_ITEM);
-            RemoveBagItem(item, 1);
+            if (!IsItemInfinite(item))
+                RemoveBagItem(item, 1);
         }
         else
         {
@@ -5729,7 +5733,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     u8 holdEffectParam = GetItemHoldEffectParam(*itemPtr);
 
     sInitialLevel = GetMonData(mon, MON_DATA_LEVEL);
-    if (!(B_RARE_CANDY_CAP && sInitialLevel >= GetCurrentLevelCap()))
+    if (*itemPtr == ITEM_CAP_CANDY || *itemPtr == ITEM_INFINITE_RARE_CANDY || !(B_RARE_CANDY_CAP && sInitialLevel >= GetCurrentLevelCap()))
     {
         BufferMonStatsToTaskData(mon, arrayPtr);
         cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
@@ -5757,7 +5761,8 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         if (targetSpecies != SPECIES_NONE)
         {
             GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL, &canStopEvo, DO_EVO);
-            RemoveBagItem(gSpecialVar_ItemId, 1);
+            if (gSpecialVar_ItemId != ITEM_INFINITE_RARE_CANDY && gSpecialVar_ItemId != ITEM_CAP_CANDY)
+                RemoveBagItem(gSpecialVar_ItemId, 1);
             FreePartyPointers();
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
             BeginEvolutionScene(mon, targetSpecies, canStopEvo, gPartyMenu.slotId);
@@ -5765,10 +5770,9 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         }
         else
         {
-            gPartyMenuUseExitCallback = FALSE;
             DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = task;
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
         }
     }
     else
@@ -5776,12 +5780,13 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         sFinalLevel = GetMonData(mon, MON_DATA_LEVEL);
         gPartyMenuUseExitCallback = TRUE;
         UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
-        RemoveBagItem(gSpecialVar_ItemId, 1);
+        if (gSpecialVar_ItemId != ITEM_INFINITE_RARE_CANDY && gSpecialVar_ItemId != ITEM_CAP_CANDY)
+            RemoveBagItem(gSpecialVar_ItemId, 1);
         GetMonNickname(mon, gStringVar1);
         if (sFinalLevel > sInitialLevel)
         {
             PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
-            if (holdEffectParam == 0) // Rare Candy
+            if (*itemPtr == ITEM_CAP_CANDY || *itemPtr == ITEM_INFINITE_RARE_CANDY || holdEffectParam == 0) // Rare Candy
             {
                 ConvertIntToDecimalStringN(gStringVar2, sFinalLevel, STR_CONV_MODE_LEFT_ALIGN, 3);
                 StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar2);

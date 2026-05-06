@@ -42,6 +42,7 @@
 #include "task.h"
 #include "text.h"
 #include "vs_seeker.h"
+#include "nuzlocke.h"
 #include "constants/event_bg.h"
 #include "constants/event_objects.h"
 #include "constants/item_effects.h"
@@ -95,7 +96,9 @@ static const u8 sText_UsedVar2WildRepelled[] = _("{PLAYER} used the\n{STR_VAR_2}
 static const u8 sText_PlayedPokeFluteCatchy[] = _("Played the POKé FLUTE.\pNow, that's a catchy tune!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayedPokeFlute[] = _("Played the POKé FLUTE.");
 static const u8 sText_PokeFluteAwakenedMon[] = _("The POKé FLUTE awakened sleeping\nPOKéMON.{PAUSE_UNTIL_PRESS}");
-
+static const u8 sText_InfiniteRepelOn[] = _("Infinite Repel was turned on!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_InfiniteRepelOff[] = _("Infinite Repel was turned off.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PortaHealPartyHealed[] = _("The party was fully healed!{PAUSE_UNTIL_PRESS}");
 // EWRAM variables
 EWRAM_DATA static TaskFunc sItemUseOnFieldCB = NULL;
 
@@ -958,7 +961,8 @@ static void UseTMHM(u8 taskId)
 
 static void RemoveUsedItem(void)
 {
-    RemoveBagItem(gSpecialVar_ItemId, 1);
+    if (!IsItemInfinite(gSpecialVar_ItemId))
+        RemoveBagItem(gSpecialVar_ItemId, 1);
     CopyItemName(gSpecialVar_ItemId, gStringVar2);
     StringExpandPlaceholders(gStringVar4, gText_PlayerUsedVar2);
     if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE)
@@ -1015,6 +1019,47 @@ void HandleUseExpiredRepel(struct ScriptContext *ctx)
 #if VAR_LAST_REPEL_LURE_USED != 0
     VarSet(VAR_REPEL_STEP_COUNT, GetItemHoldEffectParam(VarGet(VAR_LAST_REPEL_LURE_USED)));
 #endif
+}
+
+void ItemUseOutOfBattle_PortaHeal(u8 taskId)
+{
+    u32 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+        {
+            HealPokemon(&gPlayerParty[i]);
+        }
+    }
+    PlaySE(SE_USE_ITEM);
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        DisplayItemMessage(taskId, FONT_NORMAL, COMPOUND_STRING("The party was fully healed!"), CloseItemMessage);
+    else
+        DisplayItemMessageOnField(taskId, sText_PortaHealPartyHealed, Task_CloseCantUseKeyItemMessage);
+}
+
+void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
+{
+    bool8 enabled = FlagGet(FLAG_INFINITE_REPEL_ENABLED);
+    PlaySE(SE_USE_ITEM);
+
+    if (enabled)
+    {
+        FlagClear(FLAG_INFINITE_REPEL_ENABLED);
+        if (!gTasks[taskId].tUsingRegisteredKeyItem)
+            DisplayItemMessage(taskId, FONT_NORMAL, sText_InfiniteRepelOff, CloseItemMessage);
+        else
+            DisplayItemMessageOnField(taskId, sText_InfiniteRepelOff, Task_CloseCantUseKeyItemMessage);
+    }
+    else
+    {
+        FlagSet(FLAG_INFINITE_REPEL_ENABLED);
+        if (!gTasks[taskId].tUsingRegisteredKeyItem)
+            DisplayItemMessage(taskId, FONT_NORMAL, sText_InfiniteRepelOn, CloseItemMessage);
+        else
+            DisplayItemMessageOnField(taskId, sText_InfiniteRepelOn, Task_CloseCantUseKeyItemMessage);
+    }
 }
 
 void ItemUseOutOfBattle_Lure(u8 taskId)
@@ -1353,7 +1398,7 @@ bool32 CannotUseItemsInBattle(enum Item itemId, struct Pokemon *mon)
             cannotUse = TRUE;
         break;
     case EFFECT_ITEM_REVIVE:
-        if (hp != 0)
+        if (hp != 0 || NUZLOCKE_PREVENT_REVIVE)
             cannotUse = TRUE;
         break;
     case EFFECT_ITEM_RESTORE_PP:

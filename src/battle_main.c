@@ -18,6 +18,7 @@
 #include "battle_gimmick.h"
 #include "berry.h"
 #include "bg.h"
+#include "randomizer.h"
 #include "data.h"
 #include "debug.h"
 #include "decompress.h"
@@ -43,6 +44,7 @@
 #include "pokeball.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "randomizer.h"
 #include "pokerus.h"
 #include "random.h"
 #include "recorded_battle.h"
@@ -62,6 +64,7 @@
 #include "trig.h"
 #include "tv.h"
 #include "util.h"
+#include "nuzlocke.h"
 #include "wild_encounter.h"
 #include "window.h"
 #include "constants/abilities.h"
@@ -1918,8 +1921,9 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
 
     for (j = 0; j < MAX_MON_MOVES; ++j)
     {
-        u32 pp = GetMovePP(partyEntry->moves[j]);
-        SetMonData(mon, MON_DATA_MOVE1 + j, &partyEntry->moves[j]);
+        enum Move move = RandomizeMove(partyEntry->moves[j], GetMonData(mon, MON_DATA_SPECIES), j);
+        u32 pp = GetMovePP(move);
+        SetMonData(mon, MON_DATA_MOVE1 + j, &move);
         SetMonData(mon, MON_DATA_PP1 + j, &pp);
     }
 }
@@ -1957,6 +1961,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             s32 ball = -1;
             u32 personalityHash = GeneratePartyHash(trainer, i);
             const struct TrainerMon *partyData = trainer->party;
+            u16 species = partyData[monIndex].species;
+
+            if (party != gPlayerParty && RANDOMIZER_TRAINER_RANDO)
+                species = RandomizeSpecies(species, gMapHeader.regionMapSectionId);
+
             struct OriginalTrainerId otId = OTID_STRUCT_RANDOM_NO_SHINY;
             u32 abilityNum = 0;
 
@@ -1980,7 +1989,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otId.method = OT_ID_PRESET;
                 otId.value = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
-            CreateMon(&party[i], partyData[monIndex].species, partyData[monIndex].lvl, personalityValue, otId);
+            CreateMon(&party[i], species, partyData[monIndex].lvl, personalityValue, otId);
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[monIndex].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[monIndex]);
@@ -1996,7 +2005,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             }
             if (partyData[monIndex].ability != ABILITY_NONE)
             {
-                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[monIndex].species];
+                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[species];
                 u32 maxAbilityNum = ARRAY_COUNT(speciesInfo->abilities);
                 for (abilityNum = 0; abilityNum < maxAbilityNum; ++abilityNum)
                 {
@@ -2048,6 +2057,13 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 enum Type data = partyData[monIndex].teraType;
                 SetMonData(&party[i], MON_DATA_TERA_TYPE, &data);
             }
+
+            // Correct the species if it was randomized
+            if (species != partyData[monIndex].species)
+            {
+                SetMonData(&party[i], MON_DATA_SPECIES, &species);
+            }
+
             CalculateMonStats(&party[i]);
 
             if (B_TRAINER_CLASS_POKE_BALLS >= GEN_7 && ball == -1)
@@ -5618,6 +5634,8 @@ static void HandleEndTurn_FinishBattle(void)
         {
             TryPutBreakingNewsOnAir();
         }
+
+        Nuzlocke_EndWildBattle(gBattleOutcome);
 
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);

@@ -46,6 +46,9 @@
 #include "constants/pokemon_icon.h"
 #include "chooseboxmon.h"
 #include "party_menu.h"
+#include "nuzlocke.h"
+#include "config/nuzlocke.h"
+
 
 /*
     NOTE: This file is large. Some general groups of functions have
@@ -109,7 +112,11 @@ enum {
     MSG_ITEM_IS_HELD,
     MSG_CHANGED_TO_ITEM,
     MSG_CANT_STORE_MAIL,
+    MSG_NUZLOCKE_GRAVEYARD_LOCK,
+    MSG_NUZLOCKE_GRAVEYARD_IN_LOCK,
 };
+
+
 
 // IDs for how to resolve variables in the above messages
 enum {
@@ -860,6 +867,7 @@ void UpdateSpeciesSpritePSS(struct BoxPokemon *boxmon);
 static const u8 gText_JustOnePkmn[] = _("There is just one POKéMON with you.");
 static const u8 gText_PartyFull[] = _("Your party is full!");
 static const u8 gText_Box[] = _("BOX");
+static const u8 gText_Graveyard[] = _("GRAVE");
 
 struct {
     const u8 *text;
@@ -1078,7 +1086,11 @@ static const struct StorageMessage sMessages[] =
     [MSG_ITEM_IS_HELD]         = {COMPOUND_STRING("{DYNAMIC 0} is now held."),   MSG_VAR_ITEM_NAME},
     [MSG_CHANGED_TO_ITEM]      = {COMPOUND_STRING("Changed to {DYNAMIC 0}."),    MSG_VAR_ITEM_NAME},
     [MSG_CANT_STORE_MAIL]      = {COMPOUND_STRING("MAIL can't be stored!"),      MSG_VAR_NONE},
+    [MSG_NUZLOCKE_GRAVEYARD_LOCK] = {COMPOUND_STRING("POKéMON in the GRAVEYARD cannot\nbe moved or released!"), MSG_VAR_NONE},
+    [MSG_NUZLOCKE_GRAVEYARD_IN_LOCK] = {COMPOUND_STRING("POKéMON cannot be moved into\nthe GRAVEYARD manually!"), MSG_VAR_NONE},
 };
+
+
 
 static const struct WindowTemplate sYesNoWindowTemplate =
 {
@@ -1709,12 +1721,20 @@ void ResetPokemonStorageSystem(void)
     }
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
     {
-        u8 *dest = StringCopy(GetBoxNamePtr(boxId), gText_Box);
-        ConvertIntToDecimalStringN(dest, boxId + 1, STR_CONV_MODE_LEFT_ALIGN, 2);
+        if (boxId >= NUZLOCKE_GRAVEYARD_BOX_START && boxId <= NUZLOCKE_GRAVEYARD_BOX_END)
+        {
+            u8 *dest = StringCopy(GetBoxNamePtr(boxId), gText_Graveyard);
+            *dest++ = CHAR_SPACE;
+            ConvertIntToDecimalStringN(dest, boxId - NUZLOCKE_GRAVEYARD_BOX_START + 1, STR_CONV_MODE_LEFT_ALIGN, 1);
+            SetBoxWallpaper(boxId, 11); // Sky wallpaper for the graveyard
+        }
+        else
+        {
+            u8 *dest = StringCopy(GetBoxNamePtr(boxId), gText_Box);
+            ConvertIntToDecimalStringN(dest, boxId + 1, STR_CONV_MODE_LEFT_ALIGN, 2);
+            SetBoxWallpaper(boxId, boxId % (MAX_DEFAULT_WALLPAPER + 1));
+        }
     }
-
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
-        SetBoxWallpaper(boxId, boxId % (MAX_DEFAULT_WALLPAPER + 1));
 
     ResetWaldaWallpaper();
 }
@@ -2333,6 +2353,12 @@ static void Task_PokeStorageMain(u8 taskId)
                 {
                     sStorage->state = MSTATE_ERROR_HAS_MAIL;
                 }
+                else if (NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+                {
+                    PlaySE(SE_FAILURE);
+                    PrintMessage(MSG_NUZLOCKE_GRAVEYARD_IN_LOCK);
+                    sStorage->state = MSTATE_WAIT_ERROR_MSG;
+                }
                 else
                 {
                     PlaySE(SE_SELECT);
@@ -2344,10 +2370,17 @@ static void Task_PokeStorageMain(u8 taskId)
                 sStorage->state = MSTATE_ERROR_LAST_PARTY_MON;
             }
             break;
+
         case INPUT_MOVE_MON:
             if (IsRemovingLastPartyMon())
             {
                 sStorage->state = MSTATE_ERROR_LAST_PARTY_MON;
+            }
+            else if (!sInPartyMenu && NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                PlaySE(SE_FAILURE);
+                PrintMessage(MSG_NUZLOCKE_GRAVEYARD_LOCK);
+                sStorage->state = MSTATE_WAIT_ERROR_MSG;
             }
             else
             {
@@ -2355,10 +2388,17 @@ static void Task_PokeStorageMain(u8 taskId)
                 SetPokeStorageTask(Task_MoveMon);
             }
             break;
+
         case INPUT_SHIFT_MON:
             if (!CanShiftMon())
             {
                 sStorage->state = MSTATE_ERROR_LAST_PARTY_MON;
+            }
+            else if (!sInPartyMenu && NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                PlaySE(SE_FAILURE);
+                PrintMessage(MSG_NUZLOCKE_GRAVEYARD_IN_LOCK);
+                sStorage->state = MSTATE_WAIT_ERROR_MSG;
             }
             else
             {
@@ -2366,14 +2406,25 @@ static void Task_PokeStorageMain(u8 taskId)
                 SetPokeStorageTask(Task_ShiftMon);
             }
             break;
+
         case INPUT_WITHDRAW:
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_WithdrawMon);
             break;
         case INPUT_PLACE_MON:
-            PlaySE(SE_SELECT);
-            SetPokeStorageTask(Task_PlaceMon);
+            if (!sInPartyMenu && NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                PlaySE(SE_FAILURE);
+                PrintMessage(MSG_NUZLOCKE_GRAVEYARD_IN_LOCK);
+                sStorage->state = MSTATE_WAIT_ERROR_MSG;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                SetPokeStorageTask(Task_PlaceMon);
+            }
             break;
+
         case INPUT_TAKE_ITEM:
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_TakeItemForMoving);
@@ -2591,6 +2642,10 @@ static void Task_OnSelectedMon(u8 taskId)
             {
                 sStorage->state = 3;
             }
+            else if (!sInPartyMenu && NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                sStorage->state = 7; // New state for graveyard error
+            }
             else
             {
                 PlaySE(SE_SELECT);
@@ -2598,15 +2653,28 @@ static void Task_OnSelectedMon(u8 taskId)
                 SetPokeStorageTask(Task_MoveMon);
             }
             break;
+
         case MENU_PLACE:
-            PlaySE(SE_SELECT);
-            ClearBottomWindow();
-            SetPokeStorageTask(Task_PlaceMon);
+            if (!sInPartyMenu && NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                sStorage->state = 8; // State for graveyard-in error
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                ClearBottomWindow();
+                SetPokeStorageTask(Task_PlaceMon);
+            }
             break;
+
         case MENU_SHIFT:
             if (!CanShiftMon())
             {
                 sStorage->state = 3;
+            }
+            else if (!sInPartyMenu && NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                sStorage->state = 8;
             }
             else
             {
@@ -2615,11 +2683,20 @@ static void Task_OnSelectedMon(u8 taskId)
                 SetPokeStorageTask(Task_ShiftMon);
             }
             break;
+
         case MENU_WITHDRAW:
-            PlaySE(SE_SELECT);
-            ClearBottomWindow();
-            SetPokeStorageTask(Task_WithdrawMon);
+            if (!sInPartyMenu && NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                sStorage->state = 7;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                ClearBottomWindow();
+                SetPokeStorageTask(Task_WithdrawMon);
+            }
             break;
+
         case MENU_STORE:
             if (IsRemovingLastPartyMon())
             {
@@ -2629,6 +2706,10 @@ static void Task_OnSelectedMon(u8 taskId)
             {
                 sStorage->state = 4;
             }
+            else if (NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                sStorage->state = 8;
+            }
             else
             {
                 PlaySE(SE_SELECT);
@@ -2636,6 +2717,7 @@ static void Task_OnSelectedMon(u8 taskId)
                 SetPokeStorageTask(Task_DepositMenu);
             }
             break;
+
         case MENU_RELEASE:
             if (IsRemovingLastPartyMon())
             {
@@ -2649,12 +2731,17 @@ static void Task_OnSelectedMon(u8 taskId)
             {
                 sStorage->state = 4;
             }
+            else if (!sInPartyMenu && NUZLOCKE_MODE_ENABLE && StorageGetCurrentBox() >= NUZLOCKE_GRAVEYARD_BOX_START && StorageGetCurrentBox() <= NUZLOCKE_GRAVEYARD_BOX_END)
+            {
+                sStorage->state = 7;
+            }
             else
             {
                 PlaySE(SE_SELECT);
                 SetPokeStorageTask(Task_ReleaseMon);
             }
             break;
+
         case MENU_SUMMARY:
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_ShowMonSummary);
@@ -2722,6 +2809,16 @@ static void Task_OnSelectedMon(u8 taskId)
         PrintMessage(MSG_PLEASE_REMOVE_MAIL);
         sStorage->state = 6;
         break;
+    case 7:
+        PlaySE(SE_FAILURE);
+        PrintMessage(MSG_NUZLOCKE_GRAVEYARD_LOCK);
+        sStorage->state = 6;
+        break;
+    case 8:
+        PlaySE(SE_FAILURE);
+        PrintMessage(MSG_NUZLOCKE_GRAVEYARD_IN_LOCK);
+        sStorage->state = 6;
+        break;
     case 6:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
@@ -2731,6 +2828,8 @@ static void Task_OnSelectedMon(u8 taskId)
         break;
     }
 }
+
+
 
 static void Task_MoveMon(u8 taskId)
 {

@@ -41,6 +41,7 @@
 #include "palette.h"
 #include "party_menu.h"
 #include "pokedex.h"
+#include "nuzlocke.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "overworld.h"
@@ -2461,6 +2462,12 @@ bool8 ScrCmd_trainerbattle(struct ScriptContext *ctx)
 
 bool8 ScrCmd_dotrainerbattle(struct ScriptContext *ctx)
 {
+    if (FlagGet(FLAG_NUZLOCKE_RUN_LOST))
+    {
+        ScriptJump(ctx, EventScript_NuzlockeRunLost);
+        return FALSE;
+    }
+
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE | SCREFF_HARDWARE);
 
     BattleSetup_StartTrainerBattle();
@@ -2540,6 +2547,12 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
 
 bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
 {
+    if (FlagGet(FLAG_NUZLOCKE_RUN_LOST))
+    {
+        ScriptJump(ctx, EventScript_NuzlockeRunLost);
+        return FALSE;
+    }
+
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     if (sIsScriptedWildDouble == FALSE)

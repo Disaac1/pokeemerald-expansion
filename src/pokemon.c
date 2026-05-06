@@ -42,6 +42,7 @@
 #include "pokemon_storage_system.h"
 #include "pokerus.h"
 #include "random.h"
+#include "randomizer.h"
 #include "recorded_battle.h"
 #include "regions.h"
 #include "rtc.h"
@@ -53,6 +54,7 @@
 #include "text.h"
 #include "trainer_hill.h"
 #include "util.h"
+#include "nuzlocke.h"
 #include "constants/abilities.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_move_effects.h"
@@ -70,6 +72,7 @@
 #include "constants/regions.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "randomizer.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
 
@@ -1990,6 +1993,8 @@ void GiveMonInitialMoveset(struct Pokemon *mon)
     GiveBoxMonInitialMoveset(&mon->box);
 }
 
+#include "randomizer.h"
+
 void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon) //Credit: AsparagusEduardo
 {
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
@@ -2009,9 +2014,11 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon) //Credit: AsparagusEdua
         if (learnset[i].level == 0)
             continue;
 
+        enum Move move = RandomizeMove(learnset[i].move, species, addedMoves);
+
         for (j = 0; j < addedMoves; j++)
         {
-            if (moves[j] == learnset[i].move)
+            if (moves[j] == move)
             {
                 alreadyKnown = TRUE;
                 break;
@@ -2022,17 +2029,18 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon) //Credit: AsparagusEdua
         {
             if (addedMoves < MAX_MON_MOVES)
             {
-                moves[addedMoves] = learnset[i].move;
+                moves[addedMoves] = move;
                 addedMoves++;
             }
             else
             {
                 for (j = 0; j < MAX_MON_MOVES - 1; j++)
                     moves[j] = moves[j + 1];
-                moves[MAX_MON_MOVES - 1] = learnset[i].move;
+                moves[MAX_MON_MOVES - 1] = move;
             }
         }
     }
+
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         SetBoxMonData(boxMon, MON_DATA_MOVE1 + i, &moves[i]);
@@ -2122,7 +2130,12 @@ enum Move MonTryLearningNewMoveAtLevel(struct Pokemon *mon, bool32 firstMove, u3
 
     if (learnset[sLearningMoveTableID].level == level)
     {
-        gMoveToLearn = learnset[sLearningMoveTableID].move;
+        u8 attempts = 0;
+        do {
+            gMoveToLearn = RandomizeMove(learnset[sLearningMoveTableID].move, species, sLearningMoveTableID + attempts);
+            attempts++;
+        } while (MonKnowsMove(mon, gMoveToLearn) && attempts < 10);
+
         sLearningMoveTableID++;
         retVal = GiveMoveToMon(mon, gMoveToLearn);
     }
@@ -3557,7 +3570,28 @@ u8 GetMonsStateToDoubles_2(void)
 
 enum Ability GetAbilityBySpecies(u16 species, u8 abilityNum)
 {
-    int i;
+    u32 ability;
+    u32 i;
+
+    if (species >= NUM_SPECIES)
+        return ABILITY_NONE;
+
+    if (abilityNum >= NUM_ABILITY_SLOTS)
+    {
+        // If the ability num is invalid, we loop to find a valid one
+        for (i = 0; i < NUM_ABILITY_SLOTS; i++)
+        {
+            ability = gSpeciesInfo[species].abilities[i];
+            if (ability != ABILITY_NONE)
+                return ability;
+        }
+        return ABILITY_NONE;
+    }
+
+    ability = gSpeciesInfo[species].abilities[abilityNum];
+
+    if (IsRandomizerEnabled())
+        return RandomizeAbility(species, abilityNum);
 
     if (abilityNum < NUM_ABILITY_SLOTS)
         gLastUsedAbility = GetSpeciesAbility(species, abilityNum);
@@ -3931,6 +3965,50 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
     bool8 didLevelUp = FALSE;
     bool8 isLevelUpItem;
 
+    if (item == ITEM_CAP_CANDY)
+    {
+        u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
+        u32 levelCap = GetCurrentLevelCap();
+        u32 targetLevel = MAX_LEVEL;
+        u16 species = SanitizeSpeciesId(GetMonData(mon, MON_DATA_SPECIES));
+        const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
+
+        for (i = 0; learnset[i].move != MOVE_NONE; i++)
+        {
+            if (learnset[i].level > currentLevel)
+            {
+                targetLevel = learnset[i].level;
+                break;
+            }
+        }
+
+        if (targetLevel > levelCap)
+            targetLevel = levelCap;
+
+        if (currentLevel < targetLevel)
+        {
+            u32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][targetLevel];
+            SetMonData(mon, MON_DATA_EXP, &exp);
+            CalculateMonStats(mon);
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
+    if (item == ITEM_INFINITE_RARE_CANDY)
+    {
+        u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
+        if (currentLevel < MAX_LEVEL && (!B_RARE_CANDY_CAP || currentLevel < GetCurrentLevelCap()))
+        {
+            u32 exp = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].growthRate][currentLevel + 1];
+            SetMonData(mon, MON_DATA_EXP, &exp);
+            CalculateMonStats(mon);
+            return FALSE;
+        }
+        return TRUE;
+    }
+
     // Determine the EV cap to use
     u32 maxAllowedEVs = !B_EV_ITEMS_CAP ? MAX_TOTAL_EVS : GetCurrentEVCap();
 
@@ -3951,6 +4029,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
 
     // Get item effect
     itemEffect = GetItemEffect(item);
+
+    if (NUZLOCKE_PREVENT_REVIVE && ((itemEffect[4] & ITEM4_REVIVE) || (itemEffect[0] & ITEM0_SACRED_ASH)))
+        return TRUE;
+
     isLevelUpItem = (itemEffect[3] & ITEM3_LEVEL_UP) != 0;
     levelBefore = GetMonData(mon, MON_DATA_LEVEL, NULL);
 
@@ -7066,10 +7148,8 @@ bool32 TryBoxMonFormChange(struct BoxPokemon *boxMon, enum FormChanges method)
 
 u16 SanitizeSpeciesId(u16 species)
 {
-    assertf(species <= NUM_SPECIES && (species == SPECIES_NONE || IsSpeciesEnabled(species)), "invalid species: %d", species)
-    {
+    if (species >= NUM_SPECIES)
         return SPECIES_NONE;
-    }
 
     return species;
 }

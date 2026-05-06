@@ -8,6 +8,8 @@
 #include "battle_special.h"
 #include "battle_z_move.h"
 #include "data.h"
+#include "nuzlocke.h"
+
 #include "event_data.h"
 #include "frontier_util.h"
 #include "graphics.h"
@@ -88,6 +90,10 @@ static const u8 sText_TwoWildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME
 static const u8 sText_PlayerDefeatedLinkTrainerTrainer1[] = _("You defeated {B_TRAINER1_NAME_WITH_CLASS}!\p");
 static const u8 sText_OpponentMon1Appeared[] = _("{B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_WildPkmnAppeared[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!\p");
+static const u8 sText_NuzlockeEncounterAppeared[] = _("Nuzlocke encounter!\nWild {B_OPPONENT_MON1_NAME} appeared!\p");
+static const u8 sText_NuzlockeDuplicateEncounter[] = _("Duplicate encounter!\nWild {B_OPPONENT_MON1_NAME} appeared!\p");
+
+
 static const u8 sText_LegendaryPkmnAppeared[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!\p");
 static const u8 sText_WildPkmnAppearedPause[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!{PAUSE 127}");
 static const u8 sText_TwoWildPkmnAppeared[] = _("Oh! A wild {B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME} appeared!\p");
@@ -798,6 +804,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_TARGETISHURTBYSALTCURE]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is hurt by {B_BUFF1}!"),
     [STRINGID_TARGETCOVEREDINSTICKYCANDYSYRUP]      = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} got covered in sticky candy syrup!"),
     [STRINGID_SHARPSTEELFLOATS]                     = COMPOUND_STRING("Sharp-pointed pieces of steel started floating around {B_DEF_TEAM2} Pokémon!"),
+    [STRINGID_NUZLOCKE_CATCH_PREVENTED]             = COMPOUND_STRING("The Nuzlocke rules prevent you from catching another Pokémon here!"),
     [STRINGID_SHARPSTEELDMG]                        = COMPOUND_STRING("The sharp steel bit into {B_DEF_NAME_WITH_PREFIX2}!"),
     [STRINGID_PKMNBLEWAWAYSHARPSTEEL]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} blew away sharp steel!"),
     [STRINGID_SHARPSTEELDISAPPEAREDFROMTEAM]        = COMPOUND_STRING("The pieces of steel surrounding {B_ATK_TEAM2} Pokémon disappeared!"),
@@ -2449,8 +2456,13 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
                 stringPtr = sText_TwoWildPkmnAppeared;
             else if (gBattleTypeFlags & BATTLE_TYPE_CATCH_TUTORIAL)
                 stringPtr = sText_WildPkmnAppearedPause;
+            else if (gNuzlockeValidEncounterActive)
+                stringPtr = sText_NuzlockeEncounterAppeared;
+            else if (gNuzlockeDuplicateEncounterActive)
+                stringPtr = sText_NuzlockeDuplicateEncounter;
             else
                 stringPtr = sText_WildPkmnAppeared;
+
         }
         break;
     case STRINGID_INTROSENDOUT: // poke first send-out

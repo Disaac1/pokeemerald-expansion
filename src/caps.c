@@ -5,37 +5,50 @@
 #include "pokemon.h"
 
 
+static const u32 sLevelCapFlagMap[][2] =
+{
+    {FLAG_SYS_POKEDEX_GET, 14},
+    {FLAG_BADGE01_GET, 15},
+    {FLAG_BADGE02_GET, 19},
+    {FLAG_BADGE03_GET, 24},
+    {FLAG_BADGE04_GET, 29},
+    {FLAG_BADGE05_GET, 31},
+    {FLAG_BADGE06_GET, 33},
+    {FLAG_BADGE07_GET, 42},
+    {FLAG_BADGE08_GET, 46},
+    {FLAG_DEFEATED_ELITE_4_SIDNEY, 49},
+    {FLAG_DEFEATED_ELITE_4_PHOEBE, 51},
+    {FLAG_DEFEATED_ELITE_4_GLACIA, 53},
+    {FLAG_DEFEATED_ELITE_4_DRAKE, 55},
+    {FLAG_IS_CHAMPION, 58},
+    {FLAG_DEFEATED_METEOR_FALLS_STEVEN, 78},
+};
+
 u32 GetCurrentLevelCap(void)
 {
-    static const u32 sLevelCapFlagMap[][2] =
-    {
-        {FLAG_BADGE01_GET, 15},
-        {FLAG_BADGE02_GET, 19},
-        {FLAG_BADGE03_GET, 24},
-        {FLAG_BADGE04_GET, 29},
-        {FLAG_BADGE05_GET, 31},
-        {FLAG_BADGE06_GET, 33},
-        {FLAG_BADGE07_GET, 42},
-        {FLAG_BADGE08_GET, 46},
-        {FLAG_IS_CHAMPION, 58},
-    };
-
     u32 i;
+    u32 cap = MAX_LEVEL;
 
     if (B_LEVEL_CAP_TYPE == LEVEL_CAP_FLAG_LIST)
     {
         for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap); i++)
         {
             if (!FlagGet(sLevelCapFlagMap[i][0]))
-                return sLevelCapFlagMap[i][1];
+            {
+                cap = sLevelCapFlagMap[i][1];
+                break;
+            }
         }
     }
     else if (B_LEVEL_CAP_TYPE == LEVEL_CAP_VARIABLE)
     {
-        return VarGet(B_LEVEL_CAP_VARIABLE);
+        cap = VarGet(B_LEVEL_CAP_VARIABLE);
     }
 
-    return MAX_LEVEL;
+    if (cap < 14)
+        return 14;
+
+    return cap;
 }
 
 u32 GetSoftLevelCapExpValue(u32 level, u32 expValue)

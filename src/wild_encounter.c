@@ -14,6 +14,7 @@
 #include "ow_synchronize.h"
 #include "pokeblock.h"
 #include "pokemon.h"
+#include "randomizer.h"
 #include "random.h"
 #include "roamer.h"
 #include "safari_zone.h"
@@ -21,8 +22,11 @@
 #include "tv.h"
 #include "wild_encounter.h"
 #include "battle_debug.h"
+#include "nuzlocke.h"
 #include "battle_pike.h"
 #include "battle_pyramid.h"
+#include "pokedex.h"
+#include "randomizer.h"
 #include "constants/abilities.h"
 #include "constants/game_stat.h"
 #include "constants/item.h"
@@ -471,6 +475,7 @@ static u8 PickWildMonNature(u32 species)
 
 void CreateWildMon(u16 species, u8 level)
 {
+    species = RandomizeSpeciesEx(species, gMapHeader.regionMapSectionId, TRUE);
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species, GetSynchronizedGender(WILDMON_ORIGIN, species), PickWildMonNature(species), RANDOM_UNOWN_LETTER);
     CreateMonWithIVs(&gEnemyParty[0], species, level, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
@@ -589,6 +594,9 @@ static bool8 EncounterOddsCheck(u16 encounterRate)
 // Returns true if it will try to create a wild encounter.
 static bool8 WildEncounterCheck(u32 encounterRate, bool8 ignoreAbility)
 {
+    if (FlagGet(FLAG_INFINITE_REPEL_ENABLED))
+        return FALSE;
+
     encounterRate *= 16;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
         encounterRate = encounterRate * 80 / 100;
@@ -653,7 +661,7 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
     enum TimeOfDay timeOfDay;
     struct Roamer *roamer;
 
-    if (sWildEncountersDisabled == TRUE)
+    if (sWildEncountersDisabled == TRUE || FlagGet(FLAG_NUZLOCKE_RUN_LOST))
         return FALSE;
 
     headerId = GetCurrentMapWildMonHeaderId();
@@ -795,8 +803,16 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
 
 void RockSmashWildEncounter(void)
 {
-    u32 headerId = GetCurrentMapWildMonHeaderId();
+    u32 headerId;
     enum TimeOfDay timeOfDay;
+
+    if (FlagGet(FLAG_NUZLOCKE_RUN_LOST))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    headerId = GetCurrentMapWildMonHeaderId();
 
     if (headerId != HEADER_NONE)
     {
@@ -840,6 +856,9 @@ bool8 SweetScentWildEncounter(void)
     s16 x, y;
     u32 headerId;
     enum TimeOfDay timeOfDay;
+
+    if (FlagGet(FLAG_NUZLOCKE_RUN_LOST))
+        return FALSE;
 
     PlayerGetDestCoords(&x, &y);
     headerId = GetCurrentMapWildMonHeaderId();
@@ -933,6 +952,12 @@ void FishingWildEncounter(u8 rod)
     u16 species;
     u32 headerId;
     enum TimeOfDay timeOfDay;
+
+    if (FlagGet(FLAG_NUZLOCKE_RUN_LOST))
+    {
+        gSpecialVar_Result = FALSE; // No bite
+        return;
+    }
 
     gIsFishingEncounter = TRUE;
     if (CheckFeebas() == TRUE)
@@ -1053,6 +1078,9 @@ bool8 UpdateRepelCounter(void)
 static bool8 IsWildLevelAllowedByRepel(u8 wildLevel)
 {
     u8 i;
+
+    if (FlagGet(FLAG_INFINITE_REPEL_ENABLED))
+        return FALSE;
 
     if (!REPEL_STEP_COUNT)
         return TRUE;

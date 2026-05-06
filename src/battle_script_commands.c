@@ -48,6 +48,8 @@
 #include "field_specials.h"
 #include "pokemon_summary_screen.h"
 #include "pokenav.h"
+#include "nuzlocke.h"
+#include "config/nuzlocke.h"
 #include "menu_specialized.h"
 #include "data.h"
 #include "generational_changes.h"
@@ -10890,6 +10892,18 @@ static u32 ComputeBallShakeOdds(u32 odds)
     return odds;
 }
 
+// Removed BS_WaitButton to avoid bit-shifting non-constant pointers in static scripts
+
+static const u8 sBattleScript_NuzlockeCatchPrevented[] =
+{
+    B_SCR_OP_PRINTSTRING, STRINGID_NUZLOCKE_CATCH_PREVENTED & 0xFF, (STRINGID_NUZLOCKE_CATCH_PREVENTED >> 8) & 0xFF,
+    B_SCR_OP_WAITMESSAGE, 64, 0, // Wait for message and small delay
+    B_SCR_OP_FINISHACTION,
+    B_SCR_OP_END
+};
+
+
+
 static void Cmd_handleballthrow(void)
 {
     CMD_ARGS();
@@ -10910,6 +10924,12 @@ static void Cmd_handleballthrow(void)
         BtlController_EmitBallThrowAnim(gBattlerAttacker, B_COMM_TO_CONTROLLER, BALL_TRAINER_BLOCK);
         MarkBattlerForControllerExec(gBattlerAttacker);
         gBattlescriptCurrInstr = BattleScript_TrainerBallBlock;
+    }
+    else if (NUZLOCKE_MODE_ENABLE && !Nuzlocke_CanCatchEncounter(GetMonData(GetBattlerMon(gBattlerTarget), MON_DATA_SPECIES)))
+    {
+        BtlController_EmitBallThrowAnim(gBattlerAttacker, B_COMM_TO_CONTROLLER, BALL_GHOST_DODGE);
+        MarkBattlerForControllerExec(gBattlerAttacker);
+        gBattlescriptCurrInstr = sBattleScript_NuzlockeCatchPrevented;
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_CATCH_TUTORIAL)
     {
@@ -11130,6 +11150,7 @@ static void Cmd_givecaughtmon(void)
             gBattleStruct->partyState[B_SIDE_PLAYER][emptySlot].changedSpecies = GetBattlerPartyState(GetCatchingBattler())->changedSpecies;
 
         gBattleResults.caughtMonSpecies = GetMonData(caughtMon, MON_DATA_SPECIES);
+        Nuzlocke_OnCatch(caughtMon);
         GetMonData(caughtMon, MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
         gBattleResults.caughtMonBall = GetMonData(caughtMon, MON_DATA_POKEBALL);
 
@@ -11299,11 +11320,19 @@ static void Cmd_trygivecaughtmonnick(void)
     switch (gBattleCommunication[MULTIUSE_STATE])
     {
     case 0:
-        HandleBattleWindow(YESNOBOX_X_Y, 0);
-        BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
-        gBattleCommunication[MULTIUSE_STATE]++;
-        gBattleCommunication[CURSOR_POSITION] = 0;
-        BattleCreateYesNoCursorAt(0);
+        if (NUZLOCKE_MODE_ENABLE && NUZLOCKE_FORCE_NICKNAME)
+        {
+            gBattleCommunication[MULTIUSE_STATE] = 2; // Jump to DoNamingScreen
+            // Fallthrough to handle immediately if possible, or wait for next frame
+        }
+        else
+        {
+            HandleBattleWindow(YESNOBOX_X_Y, 0);
+            BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
+            gBattleCommunication[MULTIUSE_STATE]++;
+            gBattleCommunication[CURSOR_POSITION] = 0;
+            BattleCreateYesNoCursorAt(0);
+        }
         break;
     case 1:
         if (JOY_NEW(DPAD_UP) && gBattleCommunication[CURSOR_POSITION] != 0)

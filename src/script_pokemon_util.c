@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle.h"
+#include "nuzlocke.h"
 #include "battle_gfx_sfx_util.h"
 #include "berry.h"
 #include "caps.h"
@@ -21,6 +22,7 @@
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
+#include "randomizer.h"
 #include "script.h"
 #include "sprite.h"
 #include "string_util.h"
@@ -117,6 +119,7 @@ void CreateScriptedWildMon(u16 species, u8 level, enum Item item)
 {
     u8 heldItem[2];
 
+    species = RandomizeSpecies(species, gMapHeader.regionMapSectionId);
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species,
         GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species),
@@ -136,6 +139,8 @@ void CreateScriptedDoubleWildMon(u16 species1, u8 level1, enum Item item1, u16 s
     u8 heldItem1[2];
     u8 heldItem2[2];
 
+    species1 = RandomizeSpecies(species1, gMapHeader.regionMapSectionId);
+    species2 = RandomizeSpecies(species2, gMapHeader.regionMapSectionId);
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species1,
         GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species1),
@@ -364,6 +369,7 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, e
     u32 i;
     bool32 isShiny;
 
+    species = RandomizeSpecies(species, gMapHeader.regionMapSectionId);
     u32 personality = GetMonPersonality(species, gender, nature, RANDOM_UNOWN_LETTER);
     CreateMon(&mon, species, level, personality, OTID_STRUCT_PLAYER_ID);
 
@@ -478,6 +484,7 @@ u32 ScriptGiveMon(u16 species, u8 level, enum Item item)
     struct Pokemon mon;
     u8 heldItem[2];
 
+    species = RandomizeSpecies(species, gMapHeader.regionMapSectionId);
     CreateRandomMon(&mon, species, level);
     if (item)
     {

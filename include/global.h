@@ -603,7 +603,9 @@ struct SaveBlock2
              //u16 padding1:4;
              //u16 padding2;
     /*0x18*/ struct Pokedex pokedex;
-    /*0x90*/ u8 filler_90[0x8];
+    u32 randomizerSeed;
+    u8 nuzlockeData[0x30]; // Used for Nuzlocke encounter flags.
+    u8 filler_90[0x8];
     /*0x98*/ struct Time localTimeOffset;
     /*0xA0*/ struct Time lastBerryTreeUpdate;
     /*0xA8*/ u32 gcnLinkFlags; // Read by Pokémon Colosseum/XD
@@ -1098,6 +1100,8 @@ struct SaveBlock1
     /*0x14*/ struct WarpData dynamicWarp;
     /*0x1C*/ struct WarpData lastHealLocation; // used by white-out and teleport
     /*0x24*/ struct WarpData escapeWarp; // used by Dig and Escape Rope
+    u16 nuzlockeCaughtSpecies[100]; // List of caught species for Dupes Clause
+    u8 nuzlockeNumCaught;           // Number of caught species
     /*0x2C*/ u16 savedMusic;
     /*0x2E*/ u8 weather;
     /*0x2F*/ u8 weatherCycleStage;
@@ -1116,7 +1120,6 @@ struct SaveBlock1
     /*0x560*/ struct Bag bag;
     /*0x848*/ struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
 #if FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1 == FALSE
-    /*0x988*/ u8 filler1[0x34]; // Previously Dex Flags, feel free to remove.
 #endif //FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1
     /*0x9BC*/ u16 berryBlenderRecords[3];
     /*0x9C2*/ u8 unused_9C2[6];
@@ -1219,8 +1222,13 @@ struct MapPosition
 };
 
 #if T_SHOULD_RUN_MOVE_ANIM
-extern bool32 gLoadFail;
-extern bool32 gCountAllocs;
+extern bool8 gNuzlockeValidEncounterActive;
+extern bool8 gNuzlockeDuplicateEncounterActive;
+
+// Randomizer
+u16 RandomizeSpecies(u16 species);
+u16 RandomizeSpeciesForEditor(u16 species); // For UI/Dex
+void ShuffleRandomizerTable(u32 seed);
 extern s32 gSpriteAllocs;
 #endif // T_SHOULD_RUN_MOVE_ANIM
 

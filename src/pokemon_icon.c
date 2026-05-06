@@ -142,6 +142,8 @@ u8 CreateMonIcon(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u
 u8 CreateMonIconIsEgg(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality, bool32 isEgg)
 {
     u8 spriteId;
+    species = SanitizeSpeciesId(species);
+
     struct MonIconSpriteTemplate iconTemplate =
     {
         .oam = &sMonIconOamData,
@@ -151,7 +153,6 @@ u8 CreateMonIconIsEgg(u16 species, void (*callback)(struct Sprite *), s16 x, s16
         .callback = callback,
         .paletteTag = POKE_ICON_BASE_PAL_TAG + gSpeciesInfo[species].iconPalIndex,
     };
-    species = SanitizeSpeciesId(species);
 
     if (isEgg)
     {
@@ -186,6 +187,8 @@ u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s1
 u8 CreateMonIconNoPersonalityIsEgg(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, bool32 isEgg)
 {
     u8 spriteId;
+    species = SanitizeSpeciesId(species);
+
     struct MonIconSpriteTemplate iconTemplate =
     {
         .oam = &sMonIconOamData,

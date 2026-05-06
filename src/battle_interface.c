@@ -34,6 +34,7 @@
 #include "constants/songs.h"
 #include "constants/items.h"
 #include "caps.h"
+#include "nuzlocke.h"
 
 #define HEALTHBOX_BG_INDEX 2
 
@@ -1730,6 +1731,7 @@ void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
 {
     enum BattlerId battler;
     u8 healthBarSpriteId;
+    u16 species;
 
     if (gBattleTypeFlags & BATTLE_TYPE_CATCH_TUTORIAL)
         return;
@@ -1741,7 +1743,13 @@ void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
         return;
     if (GetBattlerSide(battler) == B_SIDE_OPPONENT && IsGhostBattleWithoutScope())
         return;
-    if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(GetMonData(GetBattlerMon(battler), MON_DATA_SPECIES)), FLAG_GET_CAUGHT))
+
+    species = GetMonData(GetBattlerMon(battler), MON_DATA_SPECIES);
+    if (species == SPECIES_NONE || species >= NUM_SPECIES)
+        return;
+
+    if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT)
+     && !Nuzlocke_IsSpeciesCaught(species))
         return;
 
     healthBarSpriteId = gSprites[healthboxSpriteId].hMain_HealthBarSpriteId;

@@ -12,6 +12,7 @@
 #include "battle_gimmick.h"
 #include "battle_hold_effects.h"
 #include "generational_changes.h"
+#include "nuzlocke.h"
 #include "party_menu.h"
 #include "pokemon.h"
 #include "international_string_util.h"

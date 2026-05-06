@@ -50,6 +50,8 @@
 #include "constants/items.h"
 #include "difficulty.h"
 #include "follower_npc.h"
+#include "config/nuzlocke.h"
+#include "randomizer.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
@@ -180,14 +182,23 @@ void NewGameInitData(void)
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
     gSaveBlock2Ptr->gcnLinkFlags = 0;
     InitPlayerTrainerId();
+    gSaveBlock2Ptr->randomizerSeed = (Random() << 16) | Random();
+    if (gSaveBlock2Ptr->randomizerSeed == 0) gSaveBlock2Ptr->randomizerSeed = 1;
+    ShuffleRandomizerTable(gSaveBlock2Ptr->randomizerSeed);
     PlayTimeCounter_Reset();
+    memset(gSaveBlock1Ptr->nuzlockeCaughtSpecies, 0, sizeof(gSaveBlock1Ptr->nuzlockeCaughtSpecies));
+    gSaveBlock1Ptr->nuzlockeNumCaught = 0;
     ClearPokedexFlags();
     InitEventData();
     ClearTVShowData();
     ResetGabbyAndTy();
     ClearSecretBases();
     ClearBerryTrees();
+#if NUZLOCKE_STARTING_MONEY
+    SetMoney(&gSaveBlock1Ptr->money, MAX_MONEY);
+#else
     SetMoney(&gSaveBlock1Ptr->money, 3000);
+#endif
     SetCoins(0);
     ResetLinkContestBoolean();
     ResetGameStats();
@@ -201,6 +212,12 @@ void NewGameInitData(void)
     DeactivateAllRoamers();
     gSaveBlock1Ptr->registeredItem = ITEM_NONE;
     ClearBag();
+#if NUZLOCKE_STARTING_ITEMS
+    AddBagItem(ITEM_PORTA_HEAL, 1);
+    AddBagItem(ITEM_INFINITE_REPEL, 1);
+    AddBagItem(ITEM_INFINITE_RARE_CANDY, 1);
+    AddBagItem(ITEM_CAP_CANDY, 1);
+#endif
     NewGameInitPCItems();
     ClearPokeblocks();
     ClearDecorationInventories();

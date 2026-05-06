@@ -43,6 +43,7 @@
 #include "menu.h"
 #include "metatile_behavior.h"
 #include "mirage_tower.h"
+#include "nuzlocke.h"
 #include "money.h"
 #include "new_game.h"
 #include "oras_dowse.h"
@@ -390,6 +391,7 @@ static void (*const sMovementStatusHandler[])(struct LinkPlayerObjectEvent *, st
 void DoWhiteOut(void)
 {
     RunScriptImmediately(EventScript_WhiteOut);
+    Nuzlocke_HandleWhiteOut();
     HealPlayerParty();
     Overworld_ResetStateAfterWhiteOut();
     SetWarpDestinationToLastHealLocation();
@@ -1981,6 +1983,7 @@ static void CB2_LoadMapOnReturnToFieldCableClub(void)
 
 void CB2_ReturnToField(void)
 {
+    Nuzlocke_HandlePostBattleCleanup();
     if (IsOverworldLinkActive() == TRUE)
     {
         SetMainCallback2(CB2_ReturnToFieldLink);

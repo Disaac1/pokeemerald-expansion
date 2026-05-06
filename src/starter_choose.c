@@ -10,6 +10,7 @@
 #include "palette.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "randomizer.h"
 #include "scanline_effect.h"
 #include "sound.h"
 #include "sprite.h"
@@ -23,6 +24,7 @@
 #include "window.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "nuzlocke.h"
 
 #define STARTER_MON_COUNT   3
 
@@ -348,6 +350,13 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
+{
+    if (chosenStarterId > STARTER_MON_COUNT)
+        chosenStarterId = 0;
+    return RandomizeSpecies(sStarterMon[chosenStarterId], gMapHeader.regionMapSectionId);
+}
+
+u16 GetStarterPokemonBase(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
