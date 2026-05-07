@@ -441,10 +441,6 @@ OldaleTown_Mart_EvoItems:
 	.2byte ITEM_FLOWER_SWEET
 	.2byte ITEM_STAR_SWEET
 	.2byte ITEM_RIBBON_SWEET
-	.2byte ITEM_METAL_COAT
-	.2byte ITEM_KINGS_ROCK
-	.2byte ITEM_RAZOR_CLAW
-	.2byte ITEM_RAZOR_FANG
 	.2byte ITEM_LINKING_CORD
 	.2byte ITEM_NONE
 	release
@@ -452,7 +448,7 @@ OldaleTown_Mart_EvoItems:
 
 OldaleTown_Text_EvoMerchantGreeting:
 	.string "I have all the evolution items you\n"
-	.string "could ever need. Only 1 Pokéball each!$"
+	.string "could ever need. Only 1 Pokédollar each!$"
 
 OldaleTown_Text_EvoMerchantGoodbye:
 	.string "Good luck with your evolutions!$"
