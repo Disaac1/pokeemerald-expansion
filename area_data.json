@@ -24773,122 +24773,122 @@
         "encounters": []
     },
     "26-111": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
         "encounters": []
     },
     "26-112": {
-        "name": "RUSTURF TUNNEL",
-        "sectionId": 60,
-        "romX": 2,
-        "romY": 5,
+        "name": "SCORCHED SLAB",
+        "sectionId": 80,
+        "romX": 13,
+        "romY": 0,
         "encounters": []
     },
     "26-113": {
-        "name": "UNDERWATER",
-        "sectionId": 200,
+        "name": "Area 220",
+        "sectionId": 220,
         "romX": 0,
         "romY": 0,
         "encounters": []
     },
     "26-114": {
-        "name": "INSIDE OF TRUCK",
-        "sectionId": 84,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "26-115": {
-        "name": "Area 252",
-        "sectionId": 252,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "26-116": {
-        "name": "SPECIAL AREA",
-        "sectionId": 192,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "26-117": {
-        "name": "GREEN PATH",
-        "sectionId": 160,
-        "romX": 15,
-        "romY": 3,
-        "encounters": []
-    },
-    "26-118": {
-        "name": "WATER LABYRINTH",
-        "sectionId": 156,
-        "romX": 14,
-        "romY": 10,
-        "encounters": []
-    },
-    "26-119": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
-        "romX": 4,
-        "romY": 14,
-        "encounters": []
-    },
-    "26-120": {
-        "name": "ROUTE 121",
-        "sectionId": 36,
-        "romX": 14,
-        "romY": 3,
-        "encounters": []
-    },
-    "26-121": {
-        "name": "BERRY FOREST",
-        "sectionId": 172,
-        "romX": 14,
-        "romY": 12,
-        "encounters": []
-    },
-    "26-122": {
-        "name": "POK?MON TOWER",
-        "sectionId": 140,
-        "romX": 18,
-        "romY": 6,
-        "encounters": []
-    },
-    "26-123": {
         "name": "ROUTE 4",
         "sectionId": 104,
         "romX": 8,
         "romY": 3,
         "encounters": []
     },
-    "26-124": {
-        "name": "S.S. ANNE",
-        "sectionId": 128,
-        "romX": 14,
-        "romY": 9,
+    "26-115": {
+        "name": "ROUTE 101",
+        "sectionId": 16,
+        "romX": 4,
+        "romY": 10,
         "encounters": []
     },
-    "26-125": {
-        "name": "FALLARBOR TOWN",
-        "sectionId": 4,
-        "romX": 3,
+    "26-116": {
+        "name": "Area 212",
+        "sectionId": 212,
+        "romX": 0,
         "romY": 0,
         "encounters": []
     },
+    "26-117": {
+        "name": "TANOBY CHAMBERS",
+        "sectionId": 180,
+        "romX": 9,
+        "romY": 12,
+        "encounters": []
+    },
+    "26-118": {
+        "name": "DOTTED HOLE",
+        "sectionId": 176,
+        "romX": 16,
+        "romY": 8,
+        "encounters": []
+    },
+    "26-119": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
+        "encounters": []
+    },
+    "26-120": {
+        "name": "MT. CHIMNEY",
+        "sectionId": 56,
+        "romX": 6,
+        "romY": 2,
+        "encounters": []
+    },
+    "26-121": {
+        "name": "SPECIAL AREA",
+        "sectionId": 192,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "26-122": {
+        "name": "GREEN PATH",
+        "sectionId": 160,
+        "romX": 15,
+        "romY": 3,
+        "encounters": []
+    },
+    "26-123": {
+        "name": "ROUTE 24",
+        "sectionId": 124,
+        "romX": 14,
+        "romY": 1,
+        "encounters": []
+    },
+    "26-124": {
+        "name": "SEVEN ISLAND",
+        "sectionId": 148,
+        "romX": 5,
+        "romY": 8,
+        "encounters": []
+    },
+    "26-125": {
+        "name": "ROUTE 109",
+        "sectionId": 24,
+        "romX": 8,
+        "romY": 12,
+        "encounters": []
+    },
     "26-126": {
-        "name": "ROUTE 12",
-        "sectionId": 112,
-        "romX": 18,
-        "romY": 7,
+        "name": "VICTORY ROAD",
+        "sectionId": 132,
+        "romX": 2,
+        "romY": 4,
         "encounters": []
     },
     "26-127": {
-        "name": "ROUTE 105",
-        "sectionId": 20,
-        "romX": 0,
-        "romY": 10,
+        "name": "ROUTE 125",
+        "sectionId": 40,
+        "romX": 24,
+        "romY": 3,
         "encounters": []
     },
     "27-0": {
@@ -25046,241 +25046,241 @@
         "encounters": []
     },
     "27-22": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
-        "encounters": []
-    },
-    "27-23": {
-        "name": "RUSTURF TUNNEL",
-        "sectionId": 60,
-        "romX": 2,
-        "romY": 5,
-        "encounters": []
-    },
-    "27-24": {
-        "name": "UNDERWATER",
-        "sectionId": 200,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "27-25": {
-        "name": "INSIDE OF TRUCK",
-        "sectionId": 84,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "27-26": {
-        "name": "Area 252",
-        "sectionId": 252,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "27-27": {
-        "name": "SPECIAL AREA",
-        "sectionId": 192,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "27-28": {
-        "name": "GREEN PATH",
-        "sectionId": 160,
-        "romX": 15,
-        "romY": 3,
-        "encounters": []
-    },
-    "27-29": {
-        "name": "WATER LABYRINTH",
-        "sectionId": 156,
-        "romX": 14,
-        "romY": 10,
-        "encounters": []
-    },
-    "27-30": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
-        "romX": 4,
-        "romY": 14,
-        "encounters": []
-    },
-    "27-31": {
-        "name": "ROUTE 121",
-        "sectionId": 36,
-        "romX": 14,
-        "romY": 3,
-        "encounters": []
-    },
-    "27-32": {
-        "name": "BERRY FOREST",
-        "sectionId": 172,
-        "romX": 14,
-        "romY": 12,
-        "encounters": []
-    },
-    "27-33": {
-        "name": "POK?MON TOWER",
-        "sectionId": 140,
-        "romX": 18,
-        "romY": 6,
-        "encounters": []
-    },
-    "27-34": {
-        "name": "ROUTE 4",
-        "sectionId": 104,
-        "romX": 8,
-        "romY": 3,
-        "encounters": []
-    },
-    "27-35": {
-        "name": "S.S. ANNE",
-        "sectionId": 128,
-        "romX": 14,
-        "romY": 9,
-        "encounters": []
-    },
-    "27-36": {
-        "name": "FALLARBOR TOWN",
-        "sectionId": 4,
-        "romX": 3,
-        "romY": 0,
-        "encounters": []
-    },
-    "27-37": {
-        "name": "ROUTE 12",
-        "sectionId": 112,
-        "romX": 18,
-        "romY": 7,
-        "encounters": []
-    },
-    "27-38": {
         "name": "ROUTE 105",
         "sectionId": 20,
         "romX": 0,
         "romY": 10,
         "encounters": []
     },
-    "27-39": {
-        "name": "MONEAN CHAMBER",
-        "sectionId": 184,
-        "romX": 9,
-        "romY": 12,
+    "27-23": {
+        "name": "SCORCHED SLAB",
+        "sectionId": 80,
+        "romX": 13,
+        "romY": 0,
         "encounters": []
     },
-    "27-40": {
-        "name": "Area 240",
-        "sectionId": 240,
+    "27-24": {
+        "name": "Area 220",
+        "sectionId": 220,
         "romX": 0,
         "romY": 0,
         "encounters": []
     },
-    "27-41": {
-        "name": "ROUTE 125",
-        "sectionId": 40,
-        "romX": 24,
+    "27-25": {
+        "name": "ROUTE 4",
+        "sectionId": 104,
+        "romX": 8,
         "romY": 3,
         "encounters": []
     },
-    "27-42": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
+    "27-26": {
+        "name": "ROUTE 101",
+        "sectionId": 16,
         "romX": 4,
-        "romY": 14,
+        "romY": 10,
         "encounters": []
     },
-    "27-43": {
+    "27-27": {
+        "name": "Area 212",
+        "sectionId": 212,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "27-28": {
         "name": "TANOBY CHAMBERS",
         "sectionId": 180,
         "romX": 9,
         "romY": 12,
         "encounters": []
     },
-    "27-44": {
-        "name": "TRAINER HILL",
-        "sectionId": 208,
-        "romX": 8,
-        "romY": 4,
+    "27-29": {
+        "name": "DOTTED HOLE",
+        "sectionId": 176,
+        "romX": 16,
+        "romY": 8,
         "encounters": []
     },
-    "27-45": {
-        "name": "Area 236",
-        "sectionId": 236,
-        "romX": 0,
-        "romY": 0,
+    "27-30": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
         "encounters": []
     },
-    "27-46": {
-        "name": "SLATEPORT CITY",
-        "sectionId": 8,
-        "romX": 8,
-        "romY": 10,
-        "encounters": []
-    },
-    "27-47": {
-        "name": "Area 216",
-        "sectionId": 216,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "27-48": {
-        "name": "VICTORY ROAD",
-        "sectionId": 132,
-        "romX": 2,
-        "romY": 4,
-        "encounters": []
-    },
-    "27-49": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
+    "27-31": {
+        "name": "MT. CHIMNEY",
+        "sectionId": 56,
+        "romX": 6,
         "romY": 2,
         "encounters": []
     },
-    "27-50": {
-        "name": "ROUTE 20",
-        "sectionId": 120,
-        "romX": 5,
-        "romY": 14,
+    "27-32": {
+        "name": "SPECIAL AREA",
+        "sectionId": 192,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
-    "27-51": {
+    "27-33": {
+        "name": "GREEN PATH",
+        "sectionId": 160,
+        "romX": 15,
+        "romY": 3,
+        "encounters": []
+    },
+    "27-34": {
+        "name": "ROUTE 24",
+        "sectionId": 124,
+        "romX": 14,
+        "romY": 1,
+        "encounters": []
+    },
+    "27-35": {
         "name": "SEVEN ISLAND",
         "sectionId": 148,
         "romX": 5,
         "romY": 8,
         "encounters": []
     },
-    "27-52": {
+    "27-36": {
+        "name": "ROUTE 109",
+        "sectionId": 24,
+        "romX": 8,
+        "romY": 12,
+        "encounters": []
+    },
+    "27-37": {
+        "name": "VICTORY ROAD",
+        "sectionId": 132,
+        "romX": 2,
+        "romY": 4,
+        "encounters": []
+    },
+    "27-38": {
+        "name": "ROUTE 125",
+        "sectionId": 40,
+        "romX": 24,
+        "romY": 3,
+        "encounters": []
+    },
+    "27-39": {
+        "name": "UNDERWATER",
+        "sectionId": 204,
+        "romX": 24,
+        "romY": 10,
+        "encounters": []
+    },
+    "27-40": {
+        "name": "FALLARBOR TOWN",
+        "sectionId": 4,
+        "romX": 3,
+        "romY": 0,
+        "encounters": []
+    },
+    "27-41": {
+        "name": "RUSTURF TUNNEL",
+        "sectionId": 60,
+        "romX": 2,
+        "romY": 5,
+        "encounters": []
+    },
+    "27-42": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
+        "encounters": []
+    },
+    "27-43": {
+        "name": "UNDERWATER",
+        "sectionId": 200,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "27-44": {
+        "name": "Area 228",
+        "sectionId": 228,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "27-45": {
         "name": "LITTLEROOT TOWN",
         "sectionId": 0,
         "romX": 4,
         "romY": 11,
         "encounters": []
     },
-    "27-53": {
+    "27-46": {
         "name": "ROUTE 113",
         "sectionId": 28,
         "romX": 4,
         "romY": 0,
         "encounters": []
     },
+    "27-47": {
+        "name": "Area 236",
+        "sectionId": 236,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "27-48": {
+        "name": "CAPE BRINK",
+        "sectionId": 152,
+        "romX": 9,
+        "romY": 7,
+        "encounters": []
+    },
+    "27-49": {
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "27-50": {
+        "name": "POK?MON TOWER",
+        "sectionId": 140,
+        "romX": 18,
+        "romY": 6,
+        "encounters": []
+    },
+    "27-51": {
+        "name": "SEVII ISLE 23",
+        "sectionId": 168,
+        "romX": 3,
+        "romY": 14,
+        "encounters": []
+    },
+    "27-52": {
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
+        "encounters": []
+    },
+    "27-53": {
+        "name": "ROUTE 133",
+        "sectionId": 48,
+        "romX": 12,
+        "romY": 10,
+        "encounters": []
+    },
     "27-54": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
         "encounters": []
     },
     "27-55": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
-        "romY": 2,
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
     "28-0": {
@@ -25424,241 +25424,241 @@
         "encounters": []
     },
     "28-20": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
-        "encounters": []
-    },
-    "28-21": {
-        "name": "RUSTURF TUNNEL",
-        "sectionId": 60,
-        "romX": 2,
-        "romY": 5,
-        "encounters": []
-    },
-    "28-22": {
-        "name": "UNDERWATER",
-        "sectionId": 200,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "28-23": {
-        "name": "INSIDE OF TRUCK",
-        "sectionId": 84,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "28-24": {
-        "name": "Area 252",
-        "sectionId": 252,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "28-25": {
-        "name": "SPECIAL AREA",
-        "sectionId": 192,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "28-26": {
-        "name": "GREEN PATH",
-        "sectionId": 160,
-        "romX": 15,
-        "romY": 3,
-        "encounters": []
-    },
-    "28-27": {
-        "name": "WATER LABYRINTH",
-        "sectionId": 156,
-        "romX": 14,
-        "romY": 10,
-        "encounters": []
-    },
-    "28-28": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
-        "romX": 4,
-        "romY": 14,
-        "encounters": []
-    },
-    "28-29": {
-        "name": "ROUTE 121",
-        "sectionId": 36,
-        "romX": 14,
-        "romY": 3,
-        "encounters": []
-    },
-    "28-30": {
-        "name": "BERRY FOREST",
-        "sectionId": 172,
-        "romX": 14,
-        "romY": 12,
-        "encounters": []
-    },
-    "28-31": {
-        "name": "POK?MON TOWER",
-        "sectionId": 140,
-        "romX": 18,
-        "romY": 6,
-        "encounters": []
-    },
-    "28-32": {
-        "name": "ROUTE 4",
-        "sectionId": 104,
-        "romX": 8,
-        "romY": 3,
-        "encounters": []
-    },
-    "28-33": {
-        "name": "S.S. ANNE",
-        "sectionId": 128,
-        "romX": 14,
-        "romY": 9,
-        "encounters": []
-    },
-    "28-34": {
-        "name": "FALLARBOR TOWN",
-        "sectionId": 4,
-        "romX": 3,
-        "romY": 0,
-        "encounters": []
-    },
-    "28-35": {
-        "name": "ROUTE 12",
-        "sectionId": 112,
-        "romX": 18,
-        "romY": 7,
-        "encounters": []
-    },
-    "28-36": {
         "name": "ROUTE 105",
         "sectionId": 20,
         "romX": 0,
         "romY": 10,
         "encounters": []
     },
-    "28-37": {
-        "name": "MONEAN CHAMBER",
-        "sectionId": 184,
-        "romX": 9,
-        "romY": 12,
+    "28-21": {
+        "name": "SCORCHED SLAB",
+        "sectionId": 80,
+        "romX": 13,
+        "romY": 0,
         "encounters": []
     },
-    "28-38": {
-        "name": "Area 240",
-        "sectionId": 240,
+    "28-22": {
+        "name": "Area 220",
+        "sectionId": 220,
         "romX": 0,
         "romY": 0,
         "encounters": []
     },
-    "28-39": {
-        "name": "ROUTE 125",
-        "sectionId": 40,
-        "romX": 24,
+    "28-23": {
+        "name": "ROUTE 4",
+        "sectionId": 104,
+        "romX": 8,
         "romY": 3,
         "encounters": []
     },
-    "28-40": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
+    "28-24": {
+        "name": "ROUTE 101",
+        "sectionId": 16,
         "romX": 4,
-        "romY": 14,
+        "romY": 10,
         "encounters": []
     },
-    "28-41": {
+    "28-25": {
+        "name": "Area 212",
+        "sectionId": 212,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "28-26": {
         "name": "TANOBY CHAMBERS",
         "sectionId": 180,
         "romX": 9,
         "romY": 12,
         "encounters": []
     },
-    "28-42": {
-        "name": "TRAINER HILL",
-        "sectionId": 208,
-        "romX": 8,
-        "romY": 4,
+    "28-27": {
+        "name": "DOTTED HOLE",
+        "sectionId": 176,
+        "romX": 16,
+        "romY": 8,
         "encounters": []
     },
-    "28-43": {
-        "name": "Area 236",
-        "sectionId": 236,
-        "romX": 0,
-        "romY": 0,
+    "28-28": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
         "encounters": []
     },
-    "28-44": {
-        "name": "SLATEPORT CITY",
-        "sectionId": 8,
-        "romX": 8,
-        "romY": 10,
-        "encounters": []
-    },
-    "28-45": {
-        "name": "Area 216",
-        "sectionId": 216,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "28-46": {
-        "name": "VICTORY ROAD",
-        "sectionId": 132,
-        "romX": 2,
-        "romY": 4,
-        "encounters": []
-    },
-    "28-47": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
+    "28-29": {
+        "name": "MT. CHIMNEY",
+        "sectionId": 56,
+        "romX": 6,
         "romY": 2,
         "encounters": []
     },
-    "28-48": {
-        "name": "ROUTE 20",
-        "sectionId": 120,
-        "romX": 5,
-        "romY": 14,
+    "28-30": {
+        "name": "SPECIAL AREA",
+        "sectionId": 192,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
-    "28-49": {
+    "28-31": {
+        "name": "GREEN PATH",
+        "sectionId": 160,
+        "romX": 15,
+        "romY": 3,
+        "encounters": []
+    },
+    "28-32": {
+        "name": "ROUTE 24",
+        "sectionId": 124,
+        "romX": 14,
+        "romY": 1,
+        "encounters": []
+    },
+    "28-33": {
         "name": "SEVEN ISLAND",
         "sectionId": 148,
         "romX": 5,
         "romY": 8,
         "encounters": []
     },
-    "28-50": {
+    "28-34": {
+        "name": "ROUTE 109",
+        "sectionId": 24,
+        "romX": 8,
+        "romY": 12,
+        "encounters": []
+    },
+    "28-35": {
+        "name": "VICTORY ROAD",
+        "sectionId": 132,
+        "romX": 2,
+        "romY": 4,
+        "encounters": []
+    },
+    "28-36": {
+        "name": "ROUTE 125",
+        "sectionId": 40,
+        "romX": 24,
+        "romY": 3,
+        "encounters": []
+    },
+    "28-37": {
+        "name": "UNDERWATER",
+        "sectionId": 204,
+        "romX": 24,
+        "romY": 10,
+        "encounters": []
+    },
+    "28-38": {
+        "name": "FALLARBOR TOWN",
+        "sectionId": 4,
+        "romX": 3,
+        "romY": 0,
+        "encounters": []
+    },
+    "28-39": {
+        "name": "RUSTURF TUNNEL",
+        "sectionId": 60,
+        "romX": 2,
+        "romY": 5,
+        "encounters": []
+    },
+    "28-40": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
+        "encounters": []
+    },
+    "28-41": {
+        "name": "UNDERWATER",
+        "sectionId": 200,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "28-42": {
+        "name": "Area 228",
+        "sectionId": 228,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "28-43": {
         "name": "LITTLEROOT TOWN",
         "sectionId": 0,
         "romX": 4,
         "romY": 11,
         "encounters": []
     },
-    "28-51": {
+    "28-44": {
         "name": "ROUTE 113",
         "sectionId": 28,
         "romX": 4,
         "romY": 0,
         "encounters": []
     },
+    "28-45": {
+        "name": "Area 236",
+        "sectionId": 236,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "28-46": {
+        "name": "CAPE BRINK",
+        "sectionId": 152,
+        "romX": 9,
+        "romY": 7,
+        "encounters": []
+    },
+    "28-47": {
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "28-48": {
+        "name": "POK?MON TOWER",
+        "sectionId": 140,
+        "romX": 18,
+        "romY": 6,
+        "encounters": []
+    },
+    "28-49": {
+        "name": "SEVII ISLE 23",
+        "sectionId": 168,
+        "romX": 3,
+        "romY": 14,
+        "encounters": []
+    },
+    "28-50": {
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
+        "encounters": []
+    },
+    "28-51": {
+        "name": "ROUTE 133",
+        "sectionId": 48,
+        "romX": 12,
+        "romY": 10,
+        "encounters": []
+    },
     "28-52": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
         "encounters": []
     },
     "28-53": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
-        "romY": 2,
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
     "29-0": {
@@ -25795,241 +25795,241 @@
         "encounters": []
     },
     "29-19": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
-        "encounters": []
-    },
-    "29-20": {
-        "name": "RUSTURF TUNNEL",
-        "sectionId": 60,
-        "romX": 2,
-        "romY": 5,
-        "encounters": []
-    },
-    "29-21": {
-        "name": "UNDERWATER",
-        "sectionId": 200,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "29-22": {
-        "name": "INSIDE OF TRUCK",
-        "sectionId": 84,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "29-23": {
-        "name": "Area 252",
-        "sectionId": 252,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "29-24": {
-        "name": "SPECIAL AREA",
-        "sectionId": 192,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "29-25": {
-        "name": "GREEN PATH",
-        "sectionId": 160,
-        "romX": 15,
-        "romY": 3,
-        "encounters": []
-    },
-    "29-26": {
-        "name": "WATER LABYRINTH",
-        "sectionId": 156,
-        "romX": 14,
-        "romY": 10,
-        "encounters": []
-    },
-    "29-27": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
-        "romX": 4,
-        "romY": 14,
-        "encounters": []
-    },
-    "29-28": {
-        "name": "ROUTE 121",
-        "sectionId": 36,
-        "romX": 14,
-        "romY": 3,
-        "encounters": []
-    },
-    "29-29": {
-        "name": "BERRY FOREST",
-        "sectionId": 172,
-        "romX": 14,
-        "romY": 12,
-        "encounters": []
-    },
-    "29-30": {
-        "name": "POK?MON TOWER",
-        "sectionId": 140,
-        "romX": 18,
-        "romY": 6,
-        "encounters": []
-    },
-    "29-31": {
-        "name": "ROUTE 4",
-        "sectionId": 104,
-        "romX": 8,
-        "romY": 3,
-        "encounters": []
-    },
-    "29-32": {
-        "name": "S.S. ANNE",
-        "sectionId": 128,
-        "romX": 14,
-        "romY": 9,
-        "encounters": []
-    },
-    "29-33": {
-        "name": "FALLARBOR TOWN",
-        "sectionId": 4,
-        "romX": 3,
-        "romY": 0,
-        "encounters": []
-    },
-    "29-34": {
-        "name": "ROUTE 12",
-        "sectionId": 112,
-        "romX": 18,
-        "romY": 7,
-        "encounters": []
-    },
-    "29-35": {
         "name": "ROUTE 105",
         "sectionId": 20,
         "romX": 0,
         "romY": 10,
         "encounters": []
     },
-    "29-36": {
-        "name": "MONEAN CHAMBER",
-        "sectionId": 184,
-        "romX": 9,
-        "romY": 12,
+    "29-20": {
+        "name": "SCORCHED SLAB",
+        "sectionId": 80,
+        "romX": 13,
+        "romY": 0,
         "encounters": []
     },
-    "29-37": {
-        "name": "Area 240",
-        "sectionId": 240,
+    "29-21": {
+        "name": "Area 220",
+        "sectionId": 220,
         "romX": 0,
         "romY": 0,
         "encounters": []
     },
-    "29-38": {
-        "name": "ROUTE 125",
-        "sectionId": 40,
-        "romX": 24,
+    "29-22": {
+        "name": "ROUTE 4",
+        "sectionId": 104,
+        "romX": 8,
         "romY": 3,
         "encounters": []
     },
-    "29-39": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
+    "29-23": {
+        "name": "ROUTE 101",
+        "sectionId": 16,
         "romX": 4,
-        "romY": 14,
+        "romY": 10,
         "encounters": []
     },
-    "29-40": {
+    "29-24": {
+        "name": "Area 212",
+        "sectionId": 212,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "29-25": {
         "name": "TANOBY CHAMBERS",
         "sectionId": 180,
         "romX": 9,
         "romY": 12,
         "encounters": []
     },
-    "29-41": {
-        "name": "TRAINER HILL",
-        "sectionId": 208,
-        "romX": 8,
-        "romY": 4,
+    "29-26": {
+        "name": "DOTTED HOLE",
+        "sectionId": 176,
+        "romX": 16,
+        "romY": 8,
         "encounters": []
     },
-    "29-42": {
-        "name": "Area 236",
-        "sectionId": 236,
-        "romX": 0,
-        "romY": 0,
+    "29-27": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
         "encounters": []
     },
-    "29-43": {
-        "name": "SLATEPORT CITY",
-        "sectionId": 8,
-        "romX": 8,
-        "romY": 10,
-        "encounters": []
-    },
-    "29-44": {
-        "name": "Area 216",
-        "sectionId": 216,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "29-45": {
-        "name": "VICTORY ROAD",
-        "sectionId": 132,
-        "romX": 2,
-        "romY": 4,
-        "encounters": []
-    },
-    "29-46": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
+    "29-28": {
+        "name": "MT. CHIMNEY",
+        "sectionId": 56,
+        "romX": 6,
         "romY": 2,
         "encounters": []
     },
-    "29-47": {
-        "name": "ROUTE 20",
-        "sectionId": 120,
-        "romX": 5,
-        "romY": 14,
+    "29-29": {
+        "name": "SPECIAL AREA",
+        "sectionId": 192,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
-    "29-48": {
+    "29-30": {
+        "name": "GREEN PATH",
+        "sectionId": 160,
+        "romX": 15,
+        "romY": 3,
+        "encounters": []
+    },
+    "29-31": {
+        "name": "ROUTE 24",
+        "sectionId": 124,
+        "romX": 14,
+        "romY": 1,
+        "encounters": []
+    },
+    "29-32": {
         "name": "SEVEN ISLAND",
         "sectionId": 148,
         "romX": 5,
         "romY": 8,
         "encounters": []
     },
-    "29-49": {
+    "29-33": {
+        "name": "ROUTE 109",
+        "sectionId": 24,
+        "romX": 8,
+        "romY": 12,
+        "encounters": []
+    },
+    "29-34": {
+        "name": "VICTORY ROAD",
+        "sectionId": 132,
+        "romX": 2,
+        "romY": 4,
+        "encounters": []
+    },
+    "29-35": {
+        "name": "ROUTE 125",
+        "sectionId": 40,
+        "romX": 24,
+        "romY": 3,
+        "encounters": []
+    },
+    "29-36": {
+        "name": "UNDERWATER",
+        "sectionId": 204,
+        "romX": 24,
+        "romY": 10,
+        "encounters": []
+    },
+    "29-37": {
+        "name": "FALLARBOR TOWN",
+        "sectionId": 4,
+        "romX": 3,
+        "romY": 0,
+        "encounters": []
+    },
+    "29-38": {
+        "name": "RUSTURF TUNNEL",
+        "sectionId": 60,
+        "romX": 2,
+        "romY": 5,
+        "encounters": []
+    },
+    "29-39": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
+        "encounters": []
+    },
+    "29-40": {
+        "name": "UNDERWATER",
+        "sectionId": 200,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "29-41": {
+        "name": "Area 228",
+        "sectionId": 228,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "29-42": {
         "name": "LITTLEROOT TOWN",
         "sectionId": 0,
         "romX": 4,
         "romY": 11,
         "encounters": []
     },
-    "29-50": {
+    "29-43": {
         "name": "ROUTE 113",
         "sectionId": 28,
         "romX": 4,
         "romY": 0,
         "encounters": []
     },
+    "29-44": {
+        "name": "Area 236",
+        "sectionId": 236,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "29-45": {
+        "name": "CAPE BRINK",
+        "sectionId": 152,
+        "romX": 9,
+        "romY": 7,
+        "encounters": []
+    },
+    "29-46": {
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "29-47": {
+        "name": "POK?MON TOWER",
+        "sectionId": 140,
+        "romX": 18,
+        "romY": 6,
+        "encounters": []
+    },
+    "29-48": {
+        "name": "SEVII ISLE 23",
+        "sectionId": 168,
+        "romX": 3,
+        "romY": 14,
+        "encounters": []
+    },
+    "29-49": {
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
+        "encounters": []
+    },
+    "29-50": {
+        "name": "ROUTE 133",
+        "sectionId": 48,
+        "romX": 12,
+        "romY": 10,
+        "encounters": []
+    },
     "29-51": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
         "encounters": []
     },
     "29-52": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
-        "romY": 2,
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
     "30-0": {
@@ -26075,241 +26075,241 @@
         "encounters": []
     },
     "30-6": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
-        "encounters": []
-    },
-    "30-7": {
-        "name": "RUSTURF TUNNEL",
-        "sectionId": 60,
-        "romX": 2,
-        "romY": 5,
-        "encounters": []
-    },
-    "30-8": {
-        "name": "UNDERWATER",
-        "sectionId": 200,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "30-9": {
-        "name": "INSIDE OF TRUCK",
-        "sectionId": 84,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "30-10": {
-        "name": "Area 252",
-        "sectionId": 252,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "30-11": {
-        "name": "SPECIAL AREA",
-        "sectionId": 192,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "30-12": {
-        "name": "GREEN PATH",
-        "sectionId": 160,
-        "romX": 15,
-        "romY": 3,
-        "encounters": []
-    },
-    "30-13": {
-        "name": "WATER LABYRINTH",
-        "sectionId": 156,
-        "romX": 14,
-        "romY": 10,
-        "encounters": []
-    },
-    "30-14": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
-        "romX": 4,
-        "romY": 14,
-        "encounters": []
-    },
-    "30-15": {
-        "name": "ROUTE 121",
-        "sectionId": 36,
-        "romX": 14,
-        "romY": 3,
-        "encounters": []
-    },
-    "30-16": {
-        "name": "BERRY FOREST",
-        "sectionId": 172,
-        "romX": 14,
-        "romY": 12,
-        "encounters": []
-    },
-    "30-17": {
-        "name": "POK?MON TOWER",
-        "sectionId": 140,
-        "romX": 18,
-        "romY": 6,
-        "encounters": []
-    },
-    "30-18": {
-        "name": "ROUTE 4",
-        "sectionId": 104,
-        "romX": 8,
-        "romY": 3,
-        "encounters": []
-    },
-    "30-19": {
-        "name": "S.S. ANNE",
-        "sectionId": 128,
-        "romX": 14,
-        "romY": 9,
-        "encounters": []
-    },
-    "30-20": {
-        "name": "FALLARBOR TOWN",
-        "sectionId": 4,
-        "romX": 3,
-        "romY": 0,
-        "encounters": []
-    },
-    "30-21": {
-        "name": "ROUTE 12",
-        "sectionId": 112,
-        "romX": 18,
-        "romY": 7,
-        "encounters": []
-    },
-    "30-22": {
         "name": "ROUTE 105",
         "sectionId": 20,
         "romX": 0,
         "romY": 10,
         "encounters": []
     },
-    "30-23": {
-        "name": "MONEAN CHAMBER",
-        "sectionId": 184,
-        "romX": 9,
-        "romY": 12,
+    "30-7": {
+        "name": "SCORCHED SLAB",
+        "sectionId": 80,
+        "romX": 13,
+        "romY": 0,
         "encounters": []
     },
-    "30-24": {
-        "name": "Area 240",
-        "sectionId": 240,
+    "30-8": {
+        "name": "Area 220",
+        "sectionId": 220,
         "romX": 0,
         "romY": 0,
         "encounters": []
     },
-    "30-25": {
-        "name": "ROUTE 125",
-        "sectionId": 40,
-        "romX": 24,
+    "30-9": {
+        "name": "ROUTE 4",
+        "sectionId": 104,
+        "romX": 8,
         "romY": 3,
         "encounters": []
     },
-    "30-26": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
+    "30-10": {
+        "name": "ROUTE 101",
+        "sectionId": 16,
         "romX": 4,
-        "romY": 14,
+        "romY": 10,
         "encounters": []
     },
-    "30-27": {
+    "30-11": {
+        "name": "Area 212",
+        "sectionId": 212,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "30-12": {
         "name": "TANOBY CHAMBERS",
         "sectionId": 180,
         "romX": 9,
         "romY": 12,
         "encounters": []
     },
-    "30-28": {
-        "name": "TRAINER HILL",
-        "sectionId": 208,
-        "romX": 8,
-        "romY": 4,
+    "30-13": {
+        "name": "DOTTED HOLE",
+        "sectionId": 176,
+        "romX": 16,
+        "romY": 8,
         "encounters": []
     },
-    "30-29": {
-        "name": "Area 236",
-        "sectionId": 236,
-        "romX": 0,
-        "romY": 0,
+    "30-14": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
         "encounters": []
     },
-    "30-30": {
-        "name": "SLATEPORT CITY",
-        "sectionId": 8,
-        "romX": 8,
-        "romY": 10,
-        "encounters": []
-    },
-    "30-31": {
-        "name": "Area 216",
-        "sectionId": 216,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "30-32": {
-        "name": "VICTORY ROAD",
-        "sectionId": 132,
-        "romX": 2,
-        "romY": 4,
-        "encounters": []
-    },
-    "30-33": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
+    "30-15": {
+        "name": "MT. CHIMNEY",
+        "sectionId": 56,
+        "romX": 6,
         "romY": 2,
         "encounters": []
     },
-    "30-34": {
-        "name": "ROUTE 20",
-        "sectionId": 120,
-        "romX": 5,
-        "romY": 14,
+    "30-16": {
+        "name": "SPECIAL AREA",
+        "sectionId": 192,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
-    "30-35": {
+    "30-17": {
+        "name": "GREEN PATH",
+        "sectionId": 160,
+        "romX": 15,
+        "romY": 3,
+        "encounters": []
+    },
+    "30-18": {
+        "name": "ROUTE 24",
+        "sectionId": 124,
+        "romX": 14,
+        "romY": 1,
+        "encounters": []
+    },
+    "30-19": {
         "name": "SEVEN ISLAND",
         "sectionId": 148,
         "romX": 5,
         "romY": 8,
         "encounters": []
     },
-    "30-36": {
+    "30-20": {
+        "name": "ROUTE 109",
+        "sectionId": 24,
+        "romX": 8,
+        "romY": 12,
+        "encounters": []
+    },
+    "30-21": {
+        "name": "VICTORY ROAD",
+        "sectionId": 132,
+        "romX": 2,
+        "romY": 4,
+        "encounters": []
+    },
+    "30-22": {
+        "name": "ROUTE 125",
+        "sectionId": 40,
+        "romX": 24,
+        "romY": 3,
+        "encounters": []
+    },
+    "30-23": {
+        "name": "UNDERWATER",
+        "sectionId": 204,
+        "romX": 24,
+        "romY": 10,
+        "encounters": []
+    },
+    "30-24": {
+        "name": "FALLARBOR TOWN",
+        "sectionId": 4,
+        "romX": 3,
+        "romY": 0,
+        "encounters": []
+    },
+    "30-25": {
+        "name": "RUSTURF TUNNEL",
+        "sectionId": 60,
+        "romX": 2,
+        "romY": 5,
+        "encounters": []
+    },
+    "30-26": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
+        "encounters": []
+    },
+    "30-27": {
+        "name": "UNDERWATER",
+        "sectionId": 200,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "30-28": {
+        "name": "Area 228",
+        "sectionId": 228,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "30-29": {
         "name": "LITTLEROOT TOWN",
         "sectionId": 0,
         "romX": 4,
         "romY": 11,
         "encounters": []
     },
-    "30-37": {
+    "30-30": {
         "name": "ROUTE 113",
         "sectionId": 28,
         "romX": 4,
         "romY": 0,
         "encounters": []
     },
+    "30-31": {
+        "name": "Area 236",
+        "sectionId": 236,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "30-32": {
+        "name": "CAPE BRINK",
+        "sectionId": 152,
+        "romX": 9,
+        "romY": 7,
+        "encounters": []
+    },
+    "30-33": {
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "30-34": {
+        "name": "POK?MON TOWER",
+        "sectionId": 140,
+        "romX": 18,
+        "romY": 6,
+        "encounters": []
+    },
+    "30-35": {
+        "name": "SEVII ISLE 23",
+        "sectionId": 168,
+        "romX": 3,
+        "romY": 14,
+        "encounters": []
+    },
+    "30-36": {
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
+        "encounters": []
+    },
+    "30-37": {
+        "name": "ROUTE 133",
+        "sectionId": 48,
+        "romX": 12,
+        "romY": 10,
+        "encounters": []
+    },
     "30-38": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
         "encounters": []
     },
     "30-39": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
-        "romY": 2,
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
     "31-0": {
@@ -26348,241 +26348,241 @@
         "encounters": []
     },
     "31-5": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
-        "encounters": []
-    },
-    "31-6": {
-        "name": "RUSTURF TUNNEL",
-        "sectionId": 60,
-        "romX": 2,
-        "romY": 5,
-        "encounters": []
-    },
-    "31-7": {
-        "name": "UNDERWATER",
-        "sectionId": 200,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "31-8": {
-        "name": "INSIDE OF TRUCK",
-        "sectionId": 84,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "31-9": {
-        "name": "Area 252",
-        "sectionId": 252,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "31-10": {
-        "name": "SPECIAL AREA",
-        "sectionId": 192,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "31-11": {
-        "name": "GREEN PATH",
-        "sectionId": 160,
-        "romX": 15,
-        "romY": 3,
-        "encounters": []
-    },
-    "31-12": {
-        "name": "WATER LABYRINTH",
-        "sectionId": 156,
-        "romX": 14,
-        "romY": 10,
-        "encounters": []
-    },
-    "31-13": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
-        "romX": 4,
-        "romY": 14,
-        "encounters": []
-    },
-    "31-14": {
-        "name": "ROUTE 121",
-        "sectionId": 36,
-        "romX": 14,
-        "romY": 3,
-        "encounters": []
-    },
-    "31-15": {
-        "name": "BERRY FOREST",
-        "sectionId": 172,
-        "romX": 14,
-        "romY": 12,
-        "encounters": []
-    },
-    "31-16": {
-        "name": "POK?MON TOWER",
-        "sectionId": 140,
-        "romX": 18,
-        "romY": 6,
-        "encounters": []
-    },
-    "31-17": {
-        "name": "ROUTE 4",
-        "sectionId": 104,
-        "romX": 8,
-        "romY": 3,
-        "encounters": []
-    },
-    "31-18": {
-        "name": "S.S. ANNE",
-        "sectionId": 128,
-        "romX": 14,
-        "romY": 9,
-        "encounters": []
-    },
-    "31-19": {
-        "name": "FALLARBOR TOWN",
-        "sectionId": 4,
-        "romX": 3,
-        "romY": 0,
-        "encounters": []
-    },
-    "31-20": {
-        "name": "ROUTE 12",
-        "sectionId": 112,
-        "romX": 18,
-        "romY": 7,
-        "encounters": []
-    },
-    "31-21": {
         "name": "ROUTE 105",
         "sectionId": 20,
         "romX": 0,
         "romY": 10,
         "encounters": []
     },
-    "31-22": {
-        "name": "MONEAN CHAMBER",
-        "sectionId": 184,
-        "romX": 9,
-        "romY": 12,
+    "31-6": {
+        "name": "SCORCHED SLAB",
+        "sectionId": 80,
+        "romX": 13,
+        "romY": 0,
         "encounters": []
     },
-    "31-23": {
-        "name": "Area 240",
-        "sectionId": 240,
+    "31-7": {
+        "name": "Area 220",
+        "sectionId": 220,
         "romX": 0,
         "romY": 0,
         "encounters": []
     },
-    "31-24": {
-        "name": "ROUTE 125",
-        "sectionId": 40,
-        "romX": 24,
+    "31-8": {
+        "name": "ROUTE 4",
+        "sectionId": 104,
+        "romX": 8,
         "romY": 3,
         "encounters": []
     },
-    "31-25": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
+    "31-9": {
+        "name": "ROUTE 101",
+        "sectionId": 16,
         "romX": 4,
-        "romY": 14,
+        "romY": 10,
         "encounters": []
     },
-    "31-26": {
+    "31-10": {
+        "name": "Area 212",
+        "sectionId": 212,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "31-11": {
         "name": "TANOBY CHAMBERS",
         "sectionId": 180,
         "romX": 9,
         "romY": 12,
         "encounters": []
     },
-    "31-27": {
-        "name": "TRAINER HILL",
-        "sectionId": 208,
-        "romX": 8,
-        "romY": 4,
+    "31-12": {
+        "name": "DOTTED HOLE",
+        "sectionId": 176,
+        "romX": 16,
+        "romY": 8,
         "encounters": []
     },
-    "31-28": {
-        "name": "Area 236",
-        "sectionId": 236,
-        "romX": 0,
-        "romY": 0,
+    "31-13": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
         "encounters": []
     },
-    "31-29": {
-        "name": "SLATEPORT CITY",
-        "sectionId": 8,
-        "romX": 8,
-        "romY": 10,
-        "encounters": []
-    },
-    "31-30": {
-        "name": "Area 216",
-        "sectionId": 216,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "31-31": {
-        "name": "VICTORY ROAD",
-        "sectionId": 132,
-        "romX": 2,
-        "romY": 4,
-        "encounters": []
-    },
-    "31-32": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
+    "31-14": {
+        "name": "MT. CHIMNEY",
+        "sectionId": 56,
+        "romX": 6,
         "romY": 2,
         "encounters": []
     },
-    "31-33": {
-        "name": "ROUTE 20",
-        "sectionId": 120,
-        "romX": 5,
-        "romY": 14,
+    "31-15": {
+        "name": "SPECIAL AREA",
+        "sectionId": 192,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
-    "31-34": {
+    "31-16": {
+        "name": "GREEN PATH",
+        "sectionId": 160,
+        "romX": 15,
+        "romY": 3,
+        "encounters": []
+    },
+    "31-17": {
+        "name": "ROUTE 24",
+        "sectionId": 124,
+        "romX": 14,
+        "romY": 1,
+        "encounters": []
+    },
+    "31-18": {
         "name": "SEVEN ISLAND",
         "sectionId": 148,
         "romX": 5,
         "romY": 8,
         "encounters": []
     },
-    "31-35": {
+    "31-19": {
+        "name": "ROUTE 109",
+        "sectionId": 24,
+        "romX": 8,
+        "romY": 12,
+        "encounters": []
+    },
+    "31-20": {
+        "name": "VICTORY ROAD",
+        "sectionId": 132,
+        "romX": 2,
+        "romY": 4,
+        "encounters": []
+    },
+    "31-21": {
+        "name": "ROUTE 125",
+        "sectionId": 40,
+        "romX": 24,
+        "romY": 3,
+        "encounters": []
+    },
+    "31-22": {
+        "name": "UNDERWATER",
+        "sectionId": 204,
+        "romX": 24,
+        "romY": 10,
+        "encounters": []
+    },
+    "31-23": {
+        "name": "FALLARBOR TOWN",
+        "sectionId": 4,
+        "romX": 3,
+        "romY": 0,
+        "encounters": []
+    },
+    "31-24": {
+        "name": "RUSTURF TUNNEL",
+        "sectionId": 60,
+        "romX": 2,
+        "romY": 5,
+        "encounters": []
+    },
+    "31-25": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
+        "encounters": []
+    },
+    "31-26": {
+        "name": "UNDERWATER",
+        "sectionId": 200,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "31-27": {
+        "name": "Area 228",
+        "sectionId": 228,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "31-28": {
         "name": "LITTLEROOT TOWN",
         "sectionId": 0,
         "romX": 4,
         "romY": 11,
         "encounters": []
     },
-    "31-36": {
+    "31-29": {
         "name": "ROUTE 113",
         "sectionId": 28,
         "romX": 4,
         "romY": 0,
         "encounters": []
     },
+    "31-30": {
+        "name": "Area 236",
+        "sectionId": 236,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "31-31": {
+        "name": "CAPE BRINK",
+        "sectionId": 152,
+        "romX": 9,
+        "romY": 7,
+        "encounters": []
+    },
+    "31-32": {
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "31-33": {
+        "name": "POK?MON TOWER",
+        "sectionId": 140,
+        "romX": 18,
+        "romY": 6,
+        "encounters": []
+    },
+    "31-34": {
+        "name": "SEVII ISLE 23",
+        "sectionId": 168,
+        "romX": 3,
+        "romY": 14,
+        "encounters": []
+    },
+    "31-35": {
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
+        "encounters": []
+    },
+    "31-36": {
+        "name": "ROUTE 133",
+        "sectionId": 48,
+        "romX": 12,
+        "romY": 10,
+        "encounters": []
+    },
     "31-37": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
         "encounters": []
     },
     "31-38": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
-        "romY": 2,
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
     "32-0": {
@@ -26614,241 +26614,241 @@
         "encounters": []
     },
     "32-4": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
-        "encounters": []
-    },
-    "32-5": {
-        "name": "RUSTURF TUNNEL",
-        "sectionId": 60,
-        "romX": 2,
-        "romY": 5,
-        "encounters": []
-    },
-    "32-6": {
-        "name": "UNDERWATER",
-        "sectionId": 200,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "32-7": {
-        "name": "INSIDE OF TRUCK",
-        "sectionId": 84,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "32-8": {
-        "name": "Area 252",
-        "sectionId": 252,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "32-9": {
-        "name": "SPECIAL AREA",
-        "sectionId": 192,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "32-10": {
-        "name": "GREEN PATH",
-        "sectionId": 160,
-        "romX": 15,
-        "romY": 3,
-        "encounters": []
-    },
-    "32-11": {
-        "name": "WATER LABYRINTH",
-        "sectionId": 156,
-        "romX": 14,
-        "romY": 10,
-        "encounters": []
-    },
-    "32-12": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
-        "romX": 4,
-        "romY": 14,
-        "encounters": []
-    },
-    "32-13": {
-        "name": "ROUTE 121",
-        "sectionId": 36,
-        "romX": 14,
-        "romY": 3,
-        "encounters": []
-    },
-    "32-14": {
-        "name": "BERRY FOREST",
-        "sectionId": 172,
-        "romX": 14,
-        "romY": 12,
-        "encounters": []
-    },
-    "32-15": {
-        "name": "POK?MON TOWER",
-        "sectionId": 140,
-        "romX": 18,
-        "romY": 6,
-        "encounters": []
-    },
-    "32-16": {
-        "name": "ROUTE 4",
-        "sectionId": 104,
-        "romX": 8,
-        "romY": 3,
-        "encounters": []
-    },
-    "32-17": {
-        "name": "S.S. ANNE",
-        "sectionId": 128,
-        "romX": 14,
-        "romY": 9,
-        "encounters": []
-    },
-    "32-18": {
-        "name": "FALLARBOR TOWN",
-        "sectionId": 4,
-        "romX": 3,
-        "romY": 0,
-        "encounters": []
-    },
-    "32-19": {
-        "name": "ROUTE 12",
-        "sectionId": 112,
-        "romX": 18,
-        "romY": 7,
-        "encounters": []
-    },
-    "32-20": {
         "name": "ROUTE 105",
         "sectionId": 20,
         "romX": 0,
         "romY": 10,
         "encounters": []
     },
-    "32-21": {
-        "name": "MONEAN CHAMBER",
-        "sectionId": 184,
-        "romX": 9,
-        "romY": 12,
+    "32-5": {
+        "name": "SCORCHED SLAB",
+        "sectionId": 80,
+        "romX": 13,
+        "romY": 0,
         "encounters": []
     },
-    "32-22": {
-        "name": "Area 240",
-        "sectionId": 240,
+    "32-6": {
+        "name": "Area 220",
+        "sectionId": 220,
         "romX": 0,
         "romY": 0,
         "encounters": []
     },
-    "32-23": {
-        "name": "ROUTE 125",
-        "sectionId": 40,
-        "romX": 24,
+    "32-7": {
+        "name": "ROUTE 4",
+        "sectionId": 104,
+        "romX": 8,
         "romY": 3,
         "encounters": []
     },
-    "32-24": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
+    "32-8": {
+        "name": "ROUTE 101",
+        "sectionId": 16,
         "romX": 4,
-        "romY": 14,
+        "romY": 10,
         "encounters": []
     },
-    "32-25": {
+    "32-9": {
+        "name": "Area 212",
+        "sectionId": 212,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "32-10": {
         "name": "TANOBY CHAMBERS",
         "sectionId": 180,
         "romX": 9,
         "romY": 12,
         "encounters": []
     },
-    "32-26": {
-        "name": "TRAINER HILL",
-        "sectionId": 208,
-        "romX": 8,
-        "romY": 4,
+    "32-11": {
+        "name": "DOTTED HOLE",
+        "sectionId": 176,
+        "romX": 16,
+        "romY": 8,
         "encounters": []
     },
-    "32-27": {
-        "name": "Area 236",
-        "sectionId": 236,
-        "romX": 0,
-        "romY": 0,
+    "32-12": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
         "encounters": []
     },
-    "32-28": {
-        "name": "SLATEPORT CITY",
-        "sectionId": 8,
-        "romX": 8,
-        "romY": 10,
-        "encounters": []
-    },
-    "32-29": {
-        "name": "Area 216",
-        "sectionId": 216,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "32-30": {
-        "name": "VICTORY ROAD",
-        "sectionId": 132,
-        "romX": 2,
-        "romY": 4,
-        "encounters": []
-    },
-    "32-31": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
+    "32-13": {
+        "name": "MT. CHIMNEY",
+        "sectionId": 56,
+        "romX": 6,
         "romY": 2,
         "encounters": []
     },
-    "32-32": {
-        "name": "ROUTE 20",
-        "sectionId": 120,
-        "romX": 5,
-        "romY": 14,
+    "32-14": {
+        "name": "SPECIAL AREA",
+        "sectionId": 192,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
-    "32-33": {
+    "32-15": {
+        "name": "GREEN PATH",
+        "sectionId": 160,
+        "romX": 15,
+        "romY": 3,
+        "encounters": []
+    },
+    "32-16": {
+        "name": "ROUTE 24",
+        "sectionId": 124,
+        "romX": 14,
+        "romY": 1,
+        "encounters": []
+    },
+    "32-17": {
         "name": "SEVEN ISLAND",
         "sectionId": 148,
         "romX": 5,
         "romY": 8,
         "encounters": []
     },
-    "32-34": {
+    "32-18": {
+        "name": "ROUTE 109",
+        "sectionId": 24,
+        "romX": 8,
+        "romY": 12,
+        "encounters": []
+    },
+    "32-19": {
+        "name": "VICTORY ROAD",
+        "sectionId": 132,
+        "romX": 2,
+        "romY": 4,
+        "encounters": []
+    },
+    "32-20": {
+        "name": "ROUTE 125",
+        "sectionId": 40,
+        "romX": 24,
+        "romY": 3,
+        "encounters": []
+    },
+    "32-21": {
+        "name": "UNDERWATER",
+        "sectionId": 204,
+        "romX": 24,
+        "romY": 10,
+        "encounters": []
+    },
+    "32-22": {
+        "name": "FALLARBOR TOWN",
+        "sectionId": 4,
+        "romX": 3,
+        "romY": 0,
+        "encounters": []
+    },
+    "32-23": {
+        "name": "RUSTURF TUNNEL",
+        "sectionId": 60,
+        "romX": 2,
+        "romY": 5,
+        "encounters": []
+    },
+    "32-24": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
+        "encounters": []
+    },
+    "32-25": {
+        "name": "UNDERWATER",
+        "sectionId": 200,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "32-26": {
+        "name": "Area 228",
+        "sectionId": 228,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "32-27": {
         "name": "LITTLEROOT TOWN",
         "sectionId": 0,
         "romX": 4,
         "romY": 11,
         "encounters": []
     },
-    "32-35": {
+    "32-28": {
         "name": "ROUTE 113",
         "sectionId": 28,
         "romX": 4,
         "romY": 0,
         "encounters": []
     },
+    "32-29": {
+        "name": "Area 236",
+        "sectionId": 236,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "32-30": {
+        "name": "CAPE BRINK",
+        "sectionId": 152,
+        "romX": 9,
+        "romY": 7,
+        "encounters": []
+    },
+    "32-31": {
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "32-32": {
+        "name": "POK?MON TOWER",
+        "sectionId": 140,
+        "romX": 18,
+        "romY": 6,
+        "encounters": []
+    },
+    "32-33": {
+        "name": "SEVII ISLE 23",
+        "sectionId": 168,
+        "romX": 3,
+        "romY": 14,
+        "encounters": []
+    },
+    "32-34": {
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
+        "encounters": []
+    },
+    "32-35": {
+        "name": "ROUTE 133",
+        "sectionId": 48,
+        "romX": 12,
+        "romY": 10,
+        "encounters": []
+    },
     "32-36": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
         "encounters": []
     },
     "32-37": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
-        "romY": 2,
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
     "33-0": {
@@ -26859,241 +26859,241 @@
         "encounters": []
     },
     "33-1": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
-        "encounters": []
-    },
-    "33-2": {
-        "name": "RUSTURF TUNNEL",
-        "sectionId": 60,
-        "romX": 2,
-        "romY": 5,
-        "encounters": []
-    },
-    "33-3": {
-        "name": "UNDERWATER",
-        "sectionId": 200,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "33-4": {
-        "name": "INSIDE OF TRUCK",
-        "sectionId": 84,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "33-5": {
-        "name": "Area 252",
-        "sectionId": 252,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "33-6": {
-        "name": "SPECIAL AREA",
-        "sectionId": 192,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "33-7": {
-        "name": "GREEN PATH",
-        "sectionId": 160,
-        "romX": 15,
-        "romY": 3,
-        "encounters": []
-    },
-    "33-8": {
-        "name": "WATER LABYRINTH",
-        "sectionId": 156,
-        "romX": 14,
-        "romY": 10,
-        "encounters": []
-    },
-    "33-9": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
-        "romX": 4,
-        "romY": 14,
-        "encounters": []
-    },
-    "33-10": {
-        "name": "ROUTE 121",
-        "sectionId": 36,
-        "romX": 14,
-        "romY": 3,
-        "encounters": []
-    },
-    "33-11": {
-        "name": "BERRY FOREST",
-        "sectionId": 172,
-        "romX": 14,
-        "romY": 12,
-        "encounters": []
-    },
-    "33-12": {
-        "name": "POK?MON TOWER",
-        "sectionId": 140,
-        "romX": 18,
-        "romY": 6,
-        "encounters": []
-    },
-    "33-13": {
-        "name": "ROUTE 4",
-        "sectionId": 104,
-        "romX": 8,
-        "romY": 3,
-        "encounters": []
-    },
-    "33-14": {
-        "name": "S.S. ANNE",
-        "sectionId": 128,
-        "romX": 14,
-        "romY": 9,
-        "encounters": []
-    },
-    "33-15": {
-        "name": "FALLARBOR TOWN",
-        "sectionId": 4,
-        "romX": 3,
-        "romY": 0,
-        "encounters": []
-    },
-    "33-16": {
-        "name": "ROUTE 12",
-        "sectionId": 112,
-        "romX": 18,
-        "romY": 7,
-        "encounters": []
-    },
-    "33-17": {
         "name": "ROUTE 105",
         "sectionId": 20,
         "romX": 0,
         "romY": 10,
         "encounters": []
     },
-    "33-18": {
-        "name": "MONEAN CHAMBER",
-        "sectionId": 184,
-        "romX": 9,
-        "romY": 12,
+    "33-2": {
+        "name": "SCORCHED SLAB",
+        "sectionId": 80,
+        "romX": 13,
+        "romY": 0,
         "encounters": []
     },
-    "33-19": {
-        "name": "Area 240",
-        "sectionId": 240,
+    "33-3": {
+        "name": "Area 220",
+        "sectionId": 220,
         "romX": 0,
         "romY": 0,
         "encounters": []
     },
-    "33-20": {
-        "name": "ROUTE 125",
-        "sectionId": 40,
-        "romX": 24,
+    "33-4": {
+        "name": "ROUTE 4",
+        "sectionId": 104,
+        "romX": 8,
         "romY": 3,
         "encounters": []
     },
-    "33-21": {
-        "name": "CINNABAR ISLAND",
-        "sectionId": 96,
+    "33-5": {
+        "name": "ROUTE 101",
+        "sectionId": 16,
         "romX": 4,
-        "romY": 14,
+        "romY": 10,
         "encounters": []
     },
-    "33-22": {
+    "33-6": {
+        "name": "Area 212",
+        "sectionId": 212,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "33-7": {
         "name": "TANOBY CHAMBERS",
         "sectionId": 180,
         "romX": 9,
         "romY": 12,
         "encounters": []
     },
-    "33-23": {
-        "name": "TRAINER HILL",
-        "sectionId": 208,
-        "romX": 8,
-        "romY": 4,
+    "33-8": {
+        "name": "DOTTED HOLE",
+        "sectionId": 176,
+        "romX": 16,
+        "romY": 8,
         "encounters": []
     },
-    "33-24": {
-        "name": "Area 236",
-        "sectionId": 236,
-        "romX": 0,
-        "romY": 0,
+    "33-9": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
         "encounters": []
     },
-    "33-25": {
-        "name": "SLATEPORT CITY",
-        "sectionId": 8,
-        "romX": 8,
-        "romY": 10,
-        "encounters": []
-    },
-    "33-26": {
-        "name": "Area 216",
-        "sectionId": 216,
-        "romX": 0,
-        "romY": 0,
-        "encounters": []
-    },
-    "33-27": {
-        "name": "VICTORY ROAD",
-        "sectionId": 132,
-        "romX": 2,
-        "romY": 4,
-        "encounters": []
-    },
-    "33-28": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
+    "33-10": {
+        "name": "MT. CHIMNEY",
+        "sectionId": 56,
+        "romX": 6,
         "romY": 2,
         "encounters": []
     },
-    "33-29": {
-        "name": "ROUTE 20",
-        "sectionId": 120,
-        "romX": 5,
-        "romY": 14,
+    "33-11": {
+        "name": "SPECIAL AREA",
+        "sectionId": 192,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     },
-    "33-30": {
+    "33-12": {
+        "name": "GREEN PATH",
+        "sectionId": 160,
+        "romX": 15,
+        "romY": 3,
+        "encounters": []
+    },
+    "33-13": {
+        "name": "ROUTE 24",
+        "sectionId": 124,
+        "romX": 14,
+        "romY": 1,
+        "encounters": []
+    },
+    "33-14": {
         "name": "SEVEN ISLAND",
         "sectionId": 148,
         "romX": 5,
         "romY": 8,
         "encounters": []
     },
-    "33-31": {
+    "33-15": {
+        "name": "ROUTE 109",
+        "sectionId": 24,
+        "romX": 8,
+        "romY": 12,
+        "encounters": []
+    },
+    "33-16": {
+        "name": "VICTORY ROAD",
+        "sectionId": 132,
+        "romX": 2,
+        "romY": 4,
+        "encounters": []
+    },
+    "33-17": {
+        "name": "ROUTE 125",
+        "sectionId": 40,
+        "romX": 24,
+        "romY": 3,
+        "encounters": []
+    },
+    "33-18": {
+        "name": "UNDERWATER",
+        "sectionId": 204,
+        "romX": 24,
+        "romY": 10,
+        "encounters": []
+    },
+    "33-19": {
+        "name": "FALLARBOR TOWN",
+        "sectionId": 4,
+        "romX": 3,
+        "romY": 0,
+        "encounters": []
+    },
+    "33-20": {
+        "name": "RUSTURF TUNNEL",
+        "sectionId": 60,
+        "romX": 2,
+        "romY": 5,
+        "encounters": []
+    },
+    "33-21": {
+        "name": "ROUTE 16",
+        "sectionId": 116,
+        "romX": 7,
+        "romY": 6,
+        "encounters": []
+    },
+    "33-22": {
+        "name": "UNDERWATER",
+        "sectionId": 200,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "33-23": {
+        "name": "Area 228",
+        "sectionId": 228,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "33-24": {
         "name": "LITTLEROOT TOWN",
         "sectionId": 0,
         "romX": 4,
         "romY": 11,
         "encounters": []
     },
-    "33-32": {
+    "33-25": {
         "name": "ROUTE 113",
         "sectionId": 28,
         "romX": 4,
         "romY": 0,
         "encounters": []
     },
+    "33-26": {
+        "name": "Area 236",
+        "sectionId": 236,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "33-27": {
+        "name": "CAPE BRINK",
+        "sectionId": 152,
+        "romX": 9,
+        "romY": 7,
+        "encounters": []
+    },
+    "33-28": {
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
+        "encounters": []
+    },
+    "33-29": {
+        "name": "POK?MON TOWER",
+        "sectionId": 140,
+        "romX": 18,
+        "romY": 6,
+        "encounters": []
+    },
+    "33-30": {
+        "name": "SEVII ISLE 23",
+        "sectionId": 168,
+        "romX": 3,
+        "romY": 14,
+        "encounters": []
+    },
+    "33-31": {
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
+        "encounters": []
+    },
+    "33-32": {
+        "name": "ROUTE 133",
+        "sectionId": 48,
+        "romX": 12,
+        "romY": 10,
+        "encounters": []
+    },
     "33-33": {
-        "name": "LITTLEROOT TOWN",
-        "sectionId": 0,
-        "romX": 4,
-        "romY": 11,
+        "name": "ROUTE 105",
+        "sectionId": 20,
+        "romX": 0,
+        "romY": 10,
         "encounters": []
     },
     "33-34": {
-        "name": "METEOR FALLS",
-        "sectionId": 64,
-        "romX": 1,
-        "romY": 2,
+        "name": "INSIDE OF TRUCK",
+        "sectionId": 84,
+        "romX": 0,
+        "romY": 0,
         "encounters": []
     }
 }
